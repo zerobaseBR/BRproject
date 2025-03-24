@@ -1,6 +1,6 @@
-# BRproject
+# 🎨 BRproject
 
-## 프로젝트 개요
+## 📝 프로젝트 개요
 
 BRproject는 배스킨라빈스 홈페이지의 UX/UI를 개선하기 위한 프로젝트입니다.  
 React와 TypeScript를 기반으로 개발되었으며, Vite를 사용하여 빠르고 효율적인 개발 환경을 제공합니다.  
@@ -8,19 +8,91 @@ React와 TypeScript를 기반으로 개발되었으며, Vite를 사용하여 빠
 
 ---
 
-## 주요 기능
+## ⚙️ 환경 요구사항
 
-- **React Router**를 사용한 페이지 라우팅
-- **styled-components**를 활용한 컴포넌트 스타일링
-- **반응형 디자인**: 다양한 디바이스에서 최적화된 화면 제공
-- **접근성 개선**: 웹 접근성 표준 준수
-- **상태 관리**: React Context API를 활용한 전역 상태 관리
+이 프로젝트를 실행하기 위해 아래 환경이 필요합니다:
+
+- **Node.js**: v16 이상
+- **npm**: v8 이상 (또는 **yarn**)
+- **OS**: Windows, macOS, Linux
+
+Node.js와 npm이 설치되어 있는지 확인하려면 아래 명령어를 실행하세요:
+
+```bash
+node -v
+npm -v
+```
 
 ---
 
-## 주요 라이브러리 및 도구 사용법
+## 🚀 설치 및 실행
 
-### 1. React Router
+### 1️⃣ 프로젝트 클론
+
+```bash
+git clone https://github.com/zerobaseBR/BRproject.git
+cd BRproject
+```
+
+### 2️⃣ 의존성 설치
+
+```bash
+npm install
+```
+
+- 위 명령어는 `package.json`에 정의된 모든 의존성을 설치합니다.
+- 설치가 완료되면 `node_modules` 폴더가 생성됩니다.
+
+### 3️⃣ 개발 서버 실행
+
+```bash
+npm run dev
+```
+
+- Vite 개발 서버를 실행합니다.
+- 브라우저에서 `http://localhost:5173`로 접속하여 애플리케이션을 확인할 수 있습니다.
+- 코드 변경 시 자동으로 브라우저가 새로고침됩니다.
+
+### 4️⃣ 빌드
+
+```bash
+npm run build
+```
+
+- 애플리케이션을 배포 가능한 상태로 빌드합니다.
+- 빌드된 파일은 `dist` 폴더에 생성됩니다.
+
+### 5️⃣ 배포 사이트
+
+- 애플리케이션은 아래 URL에서 확인할 수 있습니다:  
+  [🌐 BRproject 배포 사이트](https://b-rproject.vercel.app/)
+
+---
+
+## 📜 주요 스크립트
+
+아래는 `package.json`에 정의된 주요 스크립트입니다:
+
+- **`npm run dev`**: 개발 서버를 실행합니다.
+- **`npm run build`**: 애플리케이션을 배포 가능한 상태로 빌드합니다.
+- **`npm run lint`**: ESLint를 실행하여 코드 린트를 수행합니다.
+- **`npm run format`**: Prettier를 실행하여 코드 스타일을 포맷팅합니다.
+
+---
+
+## 🌟 주요 기능
+
+- **🔗 React Router**를 사용한 페이지 라우팅
+- **🎨 styled-components**를 활용한 컴포넌트 스타일링
+- **📱 반응형 디자인**: 다양한 디바이스에서 최적화된 화면 제공
+- **♿ 접근성 개선**: 웹 접근성 표준 준수
+- **📦 상태 관리**: React Context API를 활용한 전역 상태 관리
+
+---
+
+## 🛠️ 주요 라이브러리 및 도구 사용법
+
+### 1️⃣ React Router
 
 React Router를 사용하여 페이지 간 라우팅을 설정합니다.
 
@@ -44,7 +116,7 @@ function App() {
 export default App;
 ```
 
-### 2. styled-components
+### 2️⃣ styled-components
 
 CSS-in-JS 방식으로 스타일을 작성합니다.
 
@@ -67,7 +139,7 @@ const Button = styled.button`
 export default Button;
 ```
 
-### 3. ESLint와 Prettier
+### 3️⃣ ESLint와 Prettier
 
 코드 스타일을 유지하고 린트를 실행합니다.
 
@@ -81,9 +153,9 @@ npm run format
 
 ---
 
-## 컨벤션 규칙
+## 📏 컨벤션 규칙
 
-### 1. 코드 스타일
+### 1️⃣ 코드 스타일
 
 - **Prettier**와 **ESLint**를 사용하여 코드 스타일을 유지합니다.
 - 모든 파일은 `.prettierrc`와 `.eslintrc.js` 설정을 따릅니다.
@@ -98,7 +170,7 @@ npm run format
   - `react-hooks/exhaustive-deps`: 경고
   - `jsx-a11y/alt-text`: 이미지 태그에 `alt` 속성 필수
 
-### 2. 파일 및 폴더 구조
+### 2️⃣ 파일 및 폴더 구조
 
 - **src**: 소스 코드의 루트 디렉토리
   - `components`: 재사용 가능한 컴포넌트
@@ -109,7 +181,7 @@ npm run format
   - `main.tsx`: 애플리케이션 진입점
 - **public**: 정적 파일 (HTML, favicon 등)
 
-### 3. 커밋 메시지
+### 3️⃣ 커밋 메시지
 
 - 커밋 메시지는 다음 형식을 따릅니다:
   ```
@@ -127,68 +199,7 @@ npm run format
 
 ---
 
-## 설치 및 실행
-
-### 1. 프로젝트 클론
-
-```bash
-git clone https://github.com/zerobaseBR/BRproject.git
-cd BRproject
-```
-
-### 2. 의존성 설치
-
-```bash
-npm install
-```
-
-- 위 명령어는 `package.json`에 정의된 모든 의존성을 설치합니다.
-- 설치가 완료되면 `node_modules` 폴더가 생성됩니다.
-
-### 3. 배포 사이트
-
-- 애플리케이션은 아래 URL에서 확인할 수 있습니다:  
-  [BRproject 배포 사이트](https://b-rproject.vercel.app/)
-
----
-
-## 사용법
-
-### 1. 개발 서버 실행
-
-```bash
-npm run dev
-```
-
-- Vite 개발 서버를 실행합니다.
-- 브라우저에서 `http://localhost:5173`로 접속하여 애플리케이션을 확인할 수 있습니다.
-- 코드 변경 시 자동으로 브라우저가 새로고침됩니다.
-
-### 2. 빌드
-
-```bash
-npm run build
-```
-
-- 애플리케이션을 배포 가능한 상태로 빌드합니다.
-- 빌드된 파일은 `dist` 폴더에 생성됩니다.
-
-### 3. 린트 및 포맷팅
-
-- **ESLint 실행**:
-  ```bash
-  npm run lint
-  ```
-  - 코드에서 린트 오류를 확인합니다.
-- **Prettier 실행**:
-  ```bash
-  npm run format
-  ```
-  - 코드 스타일을 자동으로 포맷팅합니다.
-
----
-
-## 디렉토리 구조
+## 📂 디렉토리 구조
 
 ```
 BRproject/
@@ -211,27 +222,38 @@ BRproject/
 
 ---
 
-## Git 협업 방법
+## 🤝 Git 협업 방법
 
-### 1. 브랜치 전략
+### 1️⃣ 브랜치 전략
 
 - **main**: 배포 가능한 안정적인 코드만 포함
 - **develop**: 개발 중인 코드
 - **feature/이름**: 새로운 기능 개발
 - **fix/이름**: 버그 수정
 
-### 2. 브랜치 생성 및 작업
+### 2️⃣ 브랜치 이동 및 작업
 
 ```bash
-# 브랜치 생성
-git checkout -b feature/add-navbar
+# 원격 브랜치가 로컬에 없을 경우
+git fetch
+git switch --track origin/feature/add-navbar
+
+# 로컬에 브랜치가 있을 경우
+git switch feature/add-navbar
 
 # 작업 후 커밋
 git add .
 git commit -m "feat: Add Navbar component"
 ```
 
-### 3. 브랜치 푸시 및 Pull Request 생성
+### 3️⃣ 업데이트된 변경 사항 가져오기
+
+```bash
+# 원격 저장소에서 최신 변경 사항 가져오기
+git pull origin feature/add-navbar
+```
+
+### 4️⃣ 브랜치 푸시 및 Pull Request 생성
 
 ```bash
 # 브랜치 푸시
@@ -240,22 +262,18 @@ git push origin feature/add-navbar
 # GitHub에서 Pull Request 생성
 ```
 
-### 4. Pull Request
-
-- `main` 또는 `develop` 브랜치에 병합합니다.
-
-### 5. Vercel 배포 비용 절감 방법
+### 5️⃣ Vercel 배포 비용 절감 방법
 
 - Organization 레포(`zerobaseBR/BRproject`)에서 작업 후, `main` 브랜치에 푸시합니다.
 - 개인 레포로 포크한 후, **Sync Fork** 버튼을 눌러 최신 변경 사항을 동기화합니다.
 - 동기화 후 개인 레포에서 Vercel을 통해 자동으로 배포됩니다.
 
-### 6. Pull Request 관리
+### 6️⃣ Pull Request 관리
 
 - `main` 또는 `develop` 브랜치에서 변경 사항을 **Pull Request(PR)**로 병합합니다.
 - 병합 후 동기화가 이루어지고, Vercel에서 자동 배포됩니다.
 
-### 7. Husky와 lint-staged 설정
+### 7️⃣ Husky와 lint-staged 설정
 
 - **Husky**를 사용하여 Git pre-commit 훅을 설정합니다.
 - 커밋 전에 `lint-staged`를 실행하여 코드 스타일을 자동으로 검사하고 수정합니다.
@@ -269,7 +287,7 @@ git push origin feature/add-navbar
   npx husky add .husky/pre-commit "npx lint-staged"
   ```
 
-### 8. 충돌 해결
+### 8️⃣ 충돌 해결
 
 ```bash
 # 충돌 해결 후 병합

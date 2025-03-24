@@ -13,7 +13,6 @@ React와 TypeScript를 기반으로 개발되었으며, Vite를 사용하여 빠
 - **반응형 디자인**: 다양한 디바이스에서 최적화된 화면 제공
 - **접근성 개선**: 웹 접근성 표준 준수
 - **상태 관리**: React Context API를 활용한 전역 상태 관리
-- **테스트**: Jest를 사용한 유닛 테스트 및 Cypress를 사용한 E2E 테스트
 
 ---
 
@@ -73,32 +72,6 @@ npm run lint
 
 # Prettier 실행
 npm run format
-```
-
-### 4. Jest를 사용한 유닛 테스트
-Jest를 사용하여 컴포넌트를 테스트합니다.
-
-```tsx
-import React from 'react';
-import { render } from '@testing-library/react';
-import Button from './Button';
-
-test('renders Button component', () => {
-  const { getByText } = render(<Button>Click Me</Button>);
-  expect(getByText('Click Me')).toBeInTheDocument();
-});
-```
-
-### 5. Cypress를 사용한 E2E 테스트
-Cypress를 사용하여 사용자 플로우를 테스트합니다.
-
-```javascript
-describe('Main Page', () => {
-  it('should load the main page', () => {
-    cy.visit('/');
-    cy.contains('Welcome to BRproject');
-  });
-});
 ```
 
 ---
@@ -196,13 +169,6 @@ npm run build
   ```
   - 코드 스타일을 자동으로 포맷팅합니다.
 
-### 4. 테스트 실행
-```bash
-npm run test
-```
-- Jest를 사용하여 유닛 테스트를 실행합니다.
-- 테스트 결과는 터미널에 출력됩니다.
-
 ---
 
 ## 디렉토리 구조
@@ -219,9 +185,6 @@ BRproject/
 │   ├── style/
 │   ├── vite-env.d.ts
 │   └── main.tsx
-├── cypress/
-│   ├── integration/
-│   │   ├── mainPage.spec.js
 ├── .eslintrc.js
 ├── .prettierrc
 ├── package.json
@@ -273,20 +236,6 @@ git push origin feature/add-navbar
 ```bash
 # 충돌 해결 후 병합
 git merge main
-```
-
----
-
-## 테스트
-
-### 1. 유닛 테스트
-```bash
-npm run test
-```
-
-### 2. E2E 테스트
-```bash
-npx cypress open
 ```
 
 ---

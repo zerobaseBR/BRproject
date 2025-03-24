@@ -12,15 +12,17 @@ export default defineConfig({
   plugins: [
     // React 플러그인 + styled-components Babel 플러그인 포함
     react({
-      plugins: [
-        [
-          'styled-components',  // styled-components 사용 시 설정
-          {
-            displayName: true,  // styled-components 디버깅 시 컴포넌트 이름 표시
-            fileName: true,     // 생성된 클래스 이름에 파일명 포함 (가독성 향상)
-          },
+      babel: {
+        plugins: [
+          [
+            'styled-components',  // styled-components 사용 시 설정
+            {
+              displayName: true,  // styled-components 디버깅 시 컴포넌트 이름 표시
+              fileName: true,     // 생성된 클래스 이름에 파일명 포함 (가독성 향상)
+            },
+          ],
         ],
-      ],
+      },
     }),
   ],
   resolve: {

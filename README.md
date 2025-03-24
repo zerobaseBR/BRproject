@@ -23,7 +23,6 @@ React와 TypeScript를 기반으로 개발되었으며, Vite를 사용하여 빠
 React Router를 사용하여 페이지 간 라우팅을 설정합니다.
 
 ```tsx
-// filepath: f:\zerobase\BRproject\src\App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage';
@@ -47,7 +46,6 @@ export default App;
 CSS-in-JS 방식으로 스타일을 작성합니다.
 
 ```tsx
-// filepath: f:\zerobase\BRproject\src\components\common\Button.tsx
 import styled from 'styled-components';
 
 const Button = styled.button`
@@ -81,7 +79,6 @@ npm run format
 Jest를 사용하여 컴포넌트를 테스트합니다.
 
 ```tsx
-// filepath: f:\zerobase\BRproject\src\components\common\Button.test.tsx
 import React from 'react';
 import { render } from '@testing-library/react';
 import Button from './Button';
@@ -96,7 +93,6 @@ test('renders Button component', () => {
 Cypress를 사용하여 사용자 플로우를 테스트합니다.
 
 ```javascript
-// filepath: f:\zerobase\BRproject\cypress\integration\mainPage.spec.js
 describe('Main Page', () => {
   it('should load the main page', () => {
     cy.visit('/');
@@ -164,6 +160,10 @@ npm install
 ```
 - 위 명령어는 `package.json`에 정의된 모든 의존성을 설치합니다.  
 - 설치가 완료되면 `node_modules` 폴더가 생성됩니다.
+
+### 3. 배포 사이트
+- 애플리케이션은 아래 URL에서 확인할 수 있습니다:  
+  [BRproject 배포 사이트](https://b-rproject.vercel.app/)
 
 ---
 
@@ -257,16 +257,19 @@ git push origin feature/add-navbar
 # GitHub에서 Pull Request 생성
 ```
 
-### 4. Pull Request 리뷰 및 병합
-- 팀원들에게 리뷰를 요청합니다.
-- 리뷰어가 승인하면 `main` 또는 `develop` 브랜치에 병합합니다.
-- 병합 후 브랜치를 삭제합니다:
-  ```bash
-  git branch -d feature/add-navbar
-  git push origin --delete feature/add-navbar
-  ```
+### 4. Pull Request
+- `main` 또는 `develop` 브랜치에 병합합니다.
 
-### 5. 충돌 해결
+### 5. Vercel 배포 비용 절감 방법
+- Organization 레포(`zerobaseBR/BRproject`)에서 작업 후, `main` 브랜치에 푸시합니다.
+- 개인 레포로 포크한 후, **Sync Fork** 버튼을 눌러 최신 변경 사항을 동기화합니다.
+- 동기화 후 개인 레포에서 Vercel을 통해 자동으로 배포됩니다.
+
+### 6. Pull Request 관리
+- `main` 또는 `develop` 브랜치에서 변경 사항을 **Pull Request(PR)**로 병합합니다.
+- 병합 후 동기화가 이루어지고, Vercel에서 자동 배포됩니다.
+
+### 7. 충돌 해결
 ```bash
 # 충돌 해결 후 병합
 git merge main

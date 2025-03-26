@@ -66,6 +66,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+    /* 📝 p 태그 기본 마진 제거 */
+    p {
+    margin: 0;
+  }
+
 `;
 
 export default GlobalStyle;

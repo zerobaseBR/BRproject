@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   /*
@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* 🧍‍♂️ Body 기본 설정 */
   body {
+    margin: 0;
     min-width: 320px;              /* 모바일 대응 최소 너비 */
     min-height: 100vh;             /* 화면 최소 높이 */
     background-color: #fff;        /* 기본 배경색 */
@@ -58,7 +59,13 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
 
+    /* 🎯 리스트 스타일 제거 */
+    ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;

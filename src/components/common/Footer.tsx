@@ -2,7 +2,16 @@ import { Link } from 'react-router-dom';
 
 import * as S from '@/components/common/Footer.style';
 
-import Logo from '@/assets/images/logo-footer.png';
+import Logo from '@/assets/images/footer/logo-footer.png';
+import HappyPoint from '@/assets/images/footer/happy-point.png';
+import HappyMarket from '@/assets/images/footer/happy-market.png';
+import SpcStory from '@/assets/images/footer/spc-story.png';
+import Ksa from '@/assets/images/footer/ksa.png';
+import Ccm from '@/assets/images/footer/ccm.png';
+import Instagram from '@/assets/images/footer/instagram.png';
+import Youtube from '@/assets/images/footer/youtube.png';
+import Facebook from '@/assets/images/footer/facebook.png';
+import Magazine from '@/assets/images/footer/magazine.png';
 
 export default function Footer() {
   return (
@@ -45,7 +54,9 @@ export default function Footer() {
         </S.FooterPolicyList>
         <S.FooterInformationAndSiteMenuContainer>
           <div>
-            <img src={Logo} alt="배스킨라빈스 로고" />
+            <Link to="/">
+              <img src={Logo} alt="배스킨라빈스 로고" />
+            </Link>
             <S.FooterInformationTextContainer>
               <S.FooterInformationText>사업자 등록번호 : 303-81-09535</S.FooterInformationText>
               <S.FooterInformationText>비알코리아(주) 대표이사 도세호</S.FooterInformationText>
@@ -66,10 +77,10 @@ export default function Footer() {
               </Link>
               <S.FooterInformationSiteMenuDepthList>
                 <S.FooterInformationSiteMenuDepthListItem>
-                  이달의 맛
+                  <Link to="/menu/monthly">이달의 맛</Link>
                 </S.FooterInformationSiteMenuDepthListItem>
                 <S.FooterInformationSiteMenuDepthListItem>
-                  아이스크림
+                  <Link to="/menu">아이스크림</Link>
                 </S.FooterInformationSiteMenuDepthListItem>
                 <S.FooterInformationSiteMenuDepthListItem>
                   프리팩
@@ -171,6 +182,47 @@ export default function Footer() {
             </li>
           </S.FooterInformationSiteMenuContainer>
         </S.FooterInformationAndSiteMenuContainer>
+        <S.FooterRelationAndSnsContainer>
+          <S.FooterRelationContainer>
+            <S.FooterRelationImage src={HappyPoint} alt="해피포인트 로고" />
+            <S.FooterRelationImage src={HappyMarket} alt="해피마켓 로고" />
+            <img src={SpcStory} alt="spc스토리 로고" />
+            <S.FooterRelationImageSmall src={Ksa} alt="ksa 로고" />
+            <S.FooterRelationImageSmall src={Ccm} alt="ccm 로고" />
+          </S.FooterRelationContainer>
+          <S.FooterSnsAndFamilySiteContainer>
+            <S.FooterSnsContainer>
+              <Link
+                to="https://www.instagram.com/baskinrobbinskorea/"
+                rel="noreferrer noopener external"
+                target="_blank"
+              >
+                <img src={Instagram} alt="인스타그램 로고" />
+              </Link>
+              <Link
+                to="https://www.youtube.com/channel/UCdUlCaxi7gx9Q-WDVDe30YA"
+                rel="noreferrer noopener external"
+                target="_blank"
+              >
+                <img src={Youtube} alt="유튜브 로고" />
+              </Link>
+              <Link
+                to="https://www.facebook.com/baskinrobbinskr/?locale=ko_KR"
+                rel="noreferrer noopener external"
+                target="_blank"
+              >
+                <img src={Facebook} alt="페이스북 로고" />
+              </Link>
+              <Link
+                to="https://www.brmagazine.co.kr/"
+                rel="noreferrer noopener external"
+                target="_blank"
+              >
+                <img src={Magazine} alt="배라 메거진 로고" />
+              </Link>
+            </S.FooterSnsContainer>
+          </S.FooterSnsAndFamilySiteContainer>
+        </S.FooterRelationAndSnsContainer>
       </S.FooterWrap>
     </S.FooterContainer>
   );

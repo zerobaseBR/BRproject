@@ -5,6 +5,7 @@ import GlobalStyle from '@/style/GlobalStyles';
 import MainPage from '@/pages/MainPage';
 import MenuPage from '@/pages/MenuPage';
 import BRplayPage from '@/pages/BRplayPage';
+import Navbar from '@/components/common/Navbar';
 import Footer from '@/components/common/Footer';
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
         <GlobalStyle />
         <BrowserRouter>
           <section>
+            <Navbar />
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/menu" element={<MenuPage />} />

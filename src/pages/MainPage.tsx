@@ -1,7 +1,9 @@
+import PromotionSection from '@/components/main/promotion/PromotionSection';
+
 export default function MainPage() {
-	  return (
-	<div>
-	  <h1>Main Page</h1>
-	</div>
-  )
+  return (
+    <main>
+      <PromotionSection />
+    </main>
+  );
 }

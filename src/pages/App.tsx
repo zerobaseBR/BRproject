@@ -5,8 +5,8 @@ import GlobalStyle from '@/style/GlobalStyles';
 import MainPage from '@/pages/MainPage';
 import MenuPage from '@/pages/MenuPage';
 import BRplayPage from '@/pages/BRplayPage';
-import Navbar from '@/components/common/Navbar';
-import Footer from '@/components/common/Footer';
+import Navbar from '@/components/common/navbar/Navbar';
+// import Footer from '@/components/common/Footer';
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
               <Route path="/menu" element={<MenuPage />} />
               <Route path="/brplay" element={<BRplayPage />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
           </section>
         </BrowserRouter>
       </ThemeProvider>

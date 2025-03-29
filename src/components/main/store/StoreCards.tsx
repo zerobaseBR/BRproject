@@ -10,7 +10,6 @@ interface CardProps {
   onImageLoad: () => void;
 }
 
-// 매장 찾기 카드 컴포넌트
 export function StoreCard({
   isVisible,
   isHovered,
@@ -68,7 +67,6 @@ export function StoreCard({
   );
 }
 
-// 브랜드 스토리 카드 컴포넌트
 export function StoryCard({
   isVisible,
   isHovered,

@@ -5,7 +5,7 @@
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 컨텐츠 중앙 정렬 */
+  align-items: center;
   margin-top: 30px;
   margin-bottom: 50px;
 }
@@ -14,7 +14,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* 컨텐츠 중앙 정렬 */
+  align-items: center;
 }
 
 .tabContainer {
@@ -25,9 +25,9 @@
   background-color: rgba(255, 124, 152, 0.1);
   padding: 6px;
   overflow: hidden;
-  width: auto; /* 고정 너비 대신 자동으로 설정 */
-  min-width: 320px; /* 최소 너비 설정 */
-  max-width: 400px; /* 최대 너비 제한 */
+  width: auto;
+  min-width: 320px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 4px 20px rgba(255, 124, 152, 0.1);
@@ -45,13 +45,13 @@
   font-weight: 600;
   font-size: 16px;
   border-radius: 25px;
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1); /* 0.4s → 0.3s로 속도 개선 */
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  white-space: nowrap; /* 탭 버튼 텍스트 줄바꿈 방지 */
-  min-width: 120px; /* 최소 너비 설정 */
+  white-space: nowrap;
+  min-width: 120px;
   position: relative;
   overflow: hidden;
   will-change: transform, opacity;
@@ -129,7 +129,6 @@
   background-color: rgba(255, 124, 152, 0.1);
 }
 
-/* 탭 패널 전환 애니메이션 수정 */
 .tabPanel {
   width: 100%;
   transition: opacity 0.18s ease;
@@ -137,7 +136,6 @@
   position: relative;
 }
 
-/* 인디케이터 스타일 유지하고 위치 조정 */
 .tabIndicator {
   display: flex;
   justify-content: center;
@@ -168,13 +166,13 @@
 .activeIndicator {
   background-color: #ff7c98;
   transform: scale(1.2);
-  transition: all 0.2s ease; /* 애니메이션 속도 개선 */
+  transition: all 0.2s ease;
 }
 
 .contentContainer {
   display: flex;
   justify-content: center;
-  width: 100%; /* 전체 너비 사용 */
+  width: 100%;
 }
 
 .storeCard {
@@ -187,10 +185,10 @@
   transition:
     transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
     box-shadow 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
-  width: 100%; /* 전체 너비 사용 */
+  width: 100%;
   max-width: 900px;
   position: relative;
-  margin: 0 auto; /* 중앙 정렬 */
+  margin: 0 auto;
   will-change: transform, opacity;
 }
 
@@ -199,17 +197,16 @@
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
 }
 
-/* 이미지 컨테이너 개선 */
 .storeImageContainer {
   position: relative;
   overflow: hidden;
   flex: 1;
-  height: 300px; /* 높이 증가 */
+  height: 300px;
   transition: all 0.5s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9f9; /* 배경색 추가 */
+  background-color: #f9f9f9;
 }
 
 .storeImageContainer:after {
@@ -224,18 +221,16 @@
   pointer-events: none;
 }
 
-/* 이미지 비율 유지 및 중앙 정렬 */
 .storeImageContainer img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* contain으로 변경하여 이미지가 잘리지 않도록 수정 */
-  object-position: center; /* 이미지 중앙 정렬 */
+  object-fit: contain;
+  object-position: center;
   display: block;
   transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
-  padding: 15px; /* 내부 여백 추가 */
+  padding: 15px;
 }
 
-/* imageHover 클래스 추가 - 이미지 호버 효과 */
 .imageHover {
   transform: scale(1.03);
   transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -332,7 +327,7 @@
   font-size: 14px;
   color: #666;
   transition: transform 0.3s ease;
-  cursor: pointer; /* 커서 포인터 추가 */
+  cursor: pointer;
 }
 
 .featureItem:hover {
@@ -380,7 +375,7 @@
 .storeButton {
   display: inline-flex;
   align-items: center;
-  justify-content: center; /* 내용 중앙 정렬 */
+  justify-content: center;
   padding: 14px 28px;
   background: linear-gradient(to right, #ff7c98, #ff5c7c);
   color: white;
@@ -393,8 +388,8 @@
   align-self: flex-start;
   position: relative;
   overflow: hidden;
-  white-space: nowrap; /* 버튼 텍스트 줄바꿈 방지 */
-  min-width: 150px; /* 최소 너비 설정 */
+  white-space: nowrap;
+  min-width: 150px;
   will-change: transform, opacity;
 }
 
@@ -418,7 +413,7 @@
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(255, 124, 152, 0.4);
   letter-spacing: 0.5px;
-  transition: all 0.2s ease; /* 타이밍 함수 단순화 */
+  transition: all 0.2s ease;
 }
 
 .storeButton:hover:before {
@@ -492,31 +487,29 @@
   }
 }
 
-/* 접근성 및 포커스 개선 */
 .tabButton:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 124, 152, 0.5);
 }
 
-/* 반응형 디자인 */
 @media (min-width: 768px) {
   .storeCard {
     flex-direction: row;
-    max-height: none; /* 최대 높이 제한 제거 */
-    align-items: stretch; /* 높이 맞춤 */
+    max-height: none;
+    align-items: stretch;
   }
 
   .storeImageContainer {
     max-width: 50%;
     height: auto;
-    min-height: 320px; /* 최소 높이 설정 */
+    min-height: 320px;
   }
 
   .storeInfo {
     padding: 40px 48px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 수직 중앙 정렬 */
+    justify-content: center;
   }
 
   .storeTitle {
@@ -543,35 +536,35 @@
 
 @media (max-width: 767px) {
   .mainBox {
-    padding: 40px 15px; /* 패딩 감소 */
+    padding: 40px 15px;
   }
 
   .tabContainer {
-    width: 100%; /* 모바일에서는 전체 너비 사용 */
+    width: 100%;
     max-width: 320px;
   }
 
   .tabButton {
     font-size: 14px;
-    padding: 10px 12px; /* 패딩 조정 */
-    min-width: 110px; /* 모바일에서 최소 너비 조정 */
+    padding: 10px 12px;
+    min-width: 110px;
   }
 
   .storeImageContainer {
-    height: 200px; /* 모바일에서 이미지 높이 조정 */
+    height: 200px;
   }
 
   .storeInfo {
-    padding: 30px 20px; /* 패딩 감소 */
+    padding: 30px 20px;
   }
 
   .storeTitle {
-    font-size: 24px; /* 폰트 크기 감소 */
+    font-size: 24px;
     margin-bottom: 12px;
   }
 
   .storeDescription {
-    font-size: 14px; /* 폰트 크기 감소 */
+    font-size: 14px;
     margin-bottom: 20px;
   }
 
@@ -582,13 +575,12 @@
   }
 
   .storeButton {
-    width: 100%; /* 전체 너비로 확장 */
-    justify-content: center; /* 가운데 정렬 */
-    padding: 12px 20px; /* 패딩 조정 */
-    font-size: 15px; /* 폰트 크기 조정 */
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 15px;
   }
 
-  /* 이미지 크기 조정 */
   .storeImageContainer img {
     padding: 10px;
   }
@@ -605,7 +597,6 @@
   }
 }
 
-/* 작은 모바일 화면 최적화 */
 @media (max-width: 360px) {
   .tabButton {
     font-size: 13px;
@@ -703,7 +694,6 @@
   }
 }
 
-/* 탭 전환 혼란 방지를 위한 추가 스타일 */
 .tabContent {
   opacity: 1;
   transition: opacity 0.2s ease;
@@ -714,7 +704,6 @@
   pointer-events: none;
 }
 
-/* 탭 전환 혼란 방지를 위한 유틸리티 클래스 삭제 - 인라인 스타일 대신 사용 */
 .tabContent,
 .fadeIn,
 .fadeOut {

@@ -1,4 +1,4 @@
-import { PromotionItem } from './types';
+import { PromotionItem, DiscountType } from './types';
 
 export const promotionItems: PromotionItem[] = [
   {
@@ -9,6 +9,8 @@ export const promotionItems: PromotionItem[] = [
       'https://www.baskinrobbins.co.kr/upload/promotion/event/d4b4a9222835dee0520e98c26b3998e7.png',
     url: 'https://www.baskinrobbins.co.kr/play/event/view.php?seq=319',
     period: '2025.03.26 ~ 2025.03.30',
+    discount: '5,500원',
+    discountType: DiscountType.PRICE_OFF,
   },
   {
     id: 2,
@@ -18,6 +20,8 @@ export const promotionItems: PromotionItem[] = [
       'https://www.baskinrobbins.co.kr/upload/promotion/event/33b0ec19493de0a8d2601377d8c031fe.png',
     url: 'https://www.baskinrobbins.co.kr/play/event/view.php?seq=318',
     period: '2025.03.01 ~ 2025.03.31',
+    discount: '500원',
+    discountType: DiscountType.UPGRADE,
   },
   {
     id: 3,
@@ -27,6 +31,8 @@ export const promotionItems: PromotionItem[] = [
       'https://www.baskinrobbins.co.kr/upload/promotion/event/8f0c017a128a821d90f22d6c1de5a926.png',
     url: 'https://www.baskinrobbins.co.kr/play/event/view.php?seq=309',
     period: '2025.03.20 ~ 2025.03.31',
+    discount: '9,000원',
+    discountType: DiscountType.PRICE_OFF,
   },
   {
     id: 4,

@@ -3,7 +3,6 @@ import { theme } from '@/style/theme';
 
 const { breakpoints } = theme;
 
-// 애니메이션 정의
 const shimmerAnimation = keyframes`
   0% {
     opacity: 0.5;
@@ -39,11 +38,36 @@ export const BeBetterWrapper = styled.section`
   }
 `;
 
-// 베스킨라빈스 스타일 적용
 export const SectionTitle = styled.div`
   text-align: center;
   margin-bottom: 50px;
   position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      rgba(255, 117, 152, 0.1),
+      rgba(255, 84, 132, 0.8),
+      rgba(255, 117, 152, 0.1)
+    );
+    border-radius: 50px;
+    top: -15px;
+  }
+
+  &::before {
+    left: 25%;
+    transform: translateX(-50%);
+  }
+
+  &::after {
+    right: 25%;
+    transform: translateX(50%);
+  }
 
   h2 {
     color: #ff5484;
@@ -53,6 +77,27 @@ export const SectionTitle = styled.div`
     line-height: 1.1;
     margin-bottom: 15px;
     letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+
+    &::before,
+    &::after {
+      content: '★';
+      position: absolute;
+      color: #ff7c98;
+      font-size: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.8;
+    }
+
+    &::before {
+      left: -35px;
+    }
+
+    &::after {
+      right: -35px;
+    }
   }
 
   p {
@@ -72,8 +117,27 @@ export const SectionTitle = styled.div`
   }
 
   @media (max-width: ${breakpoints.md}) {
+    &::before,
+    &::after {
+      width: 80px;
+      top: -10px;
+    }
+
     h2 {
       font-size: 32px;
+
+      &::before,
+      &::after {
+        font-size: 18px;
+      }
+
+      &::before {
+        left: -25px;
+      }
+
+      &::after {
+        right: -25px;
+      }
     }
 
     p,

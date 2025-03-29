@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import * as S from './styles';
 
-// 베스킨라빈스 실제 캠페인 데이터
 const BEBETTER_ITEMS = [
   {
     id: 1,
@@ -30,7 +29,6 @@ const BEBETTER_ITEMS = [
 export default function BeBetterSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // 스크롤에 따른 요소 등장 애니메이션 처리
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {

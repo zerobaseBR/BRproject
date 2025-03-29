@@ -1,7 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { breakpoints } from '@/style/theme';
 
-// 애니메이션 정의 추가
 const pulse = keyframes`
   0% {
     transform: translate(-50%, -50%) scale(0.5);
@@ -13,7 +12,6 @@ const pulse = keyframes`
   }
 `;
 
-// 섹션 공통 스타일 (common.ts에서 가져옴)
 export const SectionWrapper = styled.div`
   width: 100%;
   padding: 60px 20px;
@@ -31,7 +29,6 @@ export const SectionWrapper = styled.div`
   }
 `;
 
-// 섹션 타이틀 공통 스타일 (common.ts에서 가져옴)
 export const SectionTitle = styled.div`
   text-align: center;
   margin-bottom: 40px;
@@ -57,7 +54,6 @@ export const SectionTitle = styled.div`
   }
 `;
 
-// 버튼 공통 스타일 (common.ts에서 가져옴)
 export const PrimaryButton = styled.a`
   display: inline-flex;
   align-items: center;
@@ -74,7 +70,6 @@ export const PrimaryButton = styled.a`
   }
 `;
 
-// 컨테이너 공통 스타일 (common.ts에서 가져옴)
 export const SectionContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
@@ -230,7 +225,6 @@ export const Background = styled.div`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 `;
 
-// 이미 정의된 컴포넌트를 재정의하지 않도록 이름 변경
 export const StoreContent = styled.div<{ $isVisible: boolean }>`
   display: flex;
   flex-direction: column;
@@ -259,7 +253,6 @@ export const TitleBox = styled.div`
   margin-bottom: 40px;
 `;
 
-// 이미 정의된 Title 대신 StoreTitleHeading 사용
 export const StoreTitleHeading = styled.h2`
   font-size: 36px;
   font-weight: 800;
@@ -272,7 +265,6 @@ export const StoreTitleHeading = styled.h2`
   }
 `;
 
-// 이미 정의된 Description 대신 StoreDesc 사용
 export const StoreDesc = styled.p`
   font-size: 16px;
   line-height: 1.8;
@@ -286,7 +278,6 @@ export const StoreDesc = styled.p`
   }
 `;
 
-// 이미 정의된 Button 대신 StoreButton 사용
 export const StoreButton = styled(PrimaryButton)`
   font-size: 16px;
   padding: 14px 30px;
@@ -316,7 +307,6 @@ export const ButtonArrow = styled.span`
   }
 `;
 
-// 이미 정의된 ImageContainer 대신 StoreImageContainer 사용
 export const StoreImageContainer = styled.div<{ $isVisible: boolean }>`
   flex: 1.2;
   position: relative;
@@ -324,7 +314,7 @@ export const StoreImageContainer = styled.div<{ $isVisible: boolean }>`
   transform: ${({ $isVisible }) => ($isVisible ? 'translateX(0)' : 'translateX(30px)')};
   transition: all 0.8s ease-in-out 0.2s;
   margin-top: 30px;
-  min-height: 250px; /* 이미지 로드 전 영역 확보 */
+  min-height: 250px;
 
   @media (min-width: ${breakpoints.md}) {
     margin-top: 0;
@@ -332,7 +322,6 @@ export const StoreImageContainer = styled.div<{ $isVisible: boolean }>`
   }
 `;
 
-// 이미 정의된 Image 대신 StoreImage 사용
 export const StoreImage = styled.img`
   width: 100%;
   border-radius: 15px;
@@ -341,7 +330,7 @@ export const StoreImage = styled.img`
   transition:
     transform 0.5s ease,
     box-shadow 0.5s ease;
-  object-fit: cover; /* 이미지 비율 유지 */
+  object-fit: cover;
   height: auto;
   max-height: 400px;
 
@@ -370,7 +359,7 @@ export const Pointer = styled.div`
   background-color: #ff7c98;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5; /* 겹침 순서 보장 */
+  z-index: 5;
 
   &:before {
     content: '';
@@ -387,7 +376,6 @@ export const Pointer = styled.div`
   }
 `;
 
-// 새로운 스타일 컴포넌트 추가
 export const BRStoreCard = styled.div`
   display: flex;
   flex-direction: column;
@@ -435,7 +423,6 @@ export const BRStoryContainer = styled(BRMapContainer)`
   }
 `;
 
-// StoreImage와 관련된 컴포넌트 리팩토링
 export const BRCardStoreImage = styled.img`
   width: 100%;
   height: 100%;

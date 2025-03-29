@@ -3,10 +3,11 @@
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
-  padding: 20px;
+  padding: 20px 0; /* 좌우 패딩 제거 */
   align-items: center; /* 자식 요소들을 중앙 정렬 */
   background-color: #fff9f5;
   position: relative;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 .main::before {
@@ -27,10 +28,11 @@
 /* 페이드인 애니메이션 클래스 */
 :global(.fade-in-item) {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    opacity 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform;
 }
 
 :global(.visible.fade-in-item) {
@@ -38,8 +40,120 @@
   transform: translateY(0);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  :global(.fade-in-item) {
-    transition: none;
+/* 순차적 애니메이션을 위한 지연 설정 */
+:global(.fade-in-item:nth-child(1)) {
+  transition-delay: 0.05s;
+}
+:global(.fade-in-item:nth-child(2)) {
+  transition-delay: 0.1s;
+}
+:global(.fade-in-item:nth-child(3)) {
+  transition-delay: 0.15s;
+}
+:global(.fade-in-item:nth-child(4)) {
+  transition-delay: 0.2s;
+}
+:global(.fade-in-item:nth-child(5)) {
+  transition-delay: 0.25s;
+}
+
+/* 스케일 애니메이션 추가 */
+:global(.scale-in-item) {
+  opacity: 0;
+  transform: scale(0.95);
+  transition:
+    opacity 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform;
+}
+
+:global(.visible.scale-in-item) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 슬라이드 애니메이션 추가 */
+:global(.slide-left) {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform;
+}
+
+:global(.visible.slide-left) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+:global(.slide-right) {
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.7s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: opacity, transform;
+}
+
+:global(.visible.slide-right) {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 애니메이션 렌더링 성능 최적화 */
+:global(.fade-in-item),
+:global(.scale-in-item),
+:global(.slide-left),
+:global(.slide-right) {
+  will-change: opacity, transform;
+  backface-visibility: hidden; /* 렌더링 최적화 */
+}
+
+/* 한 번 처리된 애니메이션은 will-change 속성 제거하여 메모리 최적화 */
+:global(.visible.fade-in-item),
+:global(.visible.scale-in-item),
+:global(.visible.slide-left),
+:global(.visible.slide-right) {
+  will-change: auto;
+  transition: opacity 0.2s linear 0.5s; /* 최종 투명도 조정을 위한 추가 트랜지션 */
+}
+
+/* 애니메이션 시작 효과 추가 */
+:global(.fade-in-start) {
+  animation: fadeInStart 0.5s ease forwards;
+}
+
+@keyframes fadeInStart {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
   }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(.fade-in-item),
+  :global(.fade-in-start),
+  :global(.scale-in-item),
+  :global(.slide-left),
+  :global(.slide-right) {
+    transition: none;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 컨테이너 요소 중앙 정렬 보장 */
+:global(.container-centered) {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

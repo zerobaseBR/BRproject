@@ -354,94 +354,29 @@ export const PromotionBackground = styled.div`
   }
 `;
 
-// 프로모션 컨테이너 - 반응형 개선
+// 프로모션 컨테이너 - 균형 있는 레이아웃으로 개선
 export const PromotionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; // 중앙 정렬로 변경
+  justify-content: center;
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 
-  // 터널 형태를 위한 구조 (아이템별로 높이 차이)
-  & > div:nth-child(1) {
-    margin-top: 30px;
-  }
-
-  & > div:nth-child(2) {
-    margin-top: 0;
-  }
-
-  & > div:nth-child(3) {
-    margin-top: 30px;
-  }
-
-  & > div:nth-child(4) {
-    margin-top: 60px;
-  }
-
-  & > div:nth-child(5) {
-    margin-top: 30px;
-  }
-
-  @media (max-width: ${breakpoints.lg}) {
-    & > div:nth-child(4),
-    & > div:nth-child(5) {
-      margin-top: 0;
-    }
+  // 모든 카드가 동일한 레벨에 표시되도록 마진 제거
+  & > div {
+    margin-top: 0 !important;
   }
 
   @media (max-width: ${breakpoints.md}) {
-    & > div {
-      margin-top: 0 !important;
-    }
-  }
-
-  // 터널 형태를 위한 구조 설정 (화면 크기에 따라 다르게 적용)
-  @media (min-width: 1281px) {
-    & > div:nth-child(1) {
-      margin-top: 30px;
-    }
-    & > div:nth-child(2) {
-      margin-top: 0;
-    }
-    & > div:nth-child(3) {
-      margin-top: 30px;
-    }
-    & > div:nth-child(4) {
-      margin-top: 60px;
-    }
-    & > div:nth-child(5) {
-      margin-top: 30px;
-    }
-  }
-
-  @media (max-width: 1280px) and (min-width: ${breakpoints.lg}) {
-    & > div:nth-child(1) {
-      margin-top: 20px;
-    }
-    & > div:nth-child(2) {
-      margin-top: 0;
-    }
-    & > div:nth-child(3) {
-      margin-top: 20px;
-    }
-    & > div:nth-child(4) {
-      margin-top: 0;
-    }
-  }
-
-  @media (max-width: ${breakpoints.lg}) {
-    & > div {
-      margin-top: 0 !important;
-    }
+    gap: 15px;
   }
 `;
 
-// 프로모션 카드 - 반응형 개선
+// 프로모션 카드 - 카드 크기 균형 조정
 export const PromotionCard = styled.div`
-  width: calc(20% - 16px);
+  width: calc(20% - 16px); // 5개 카드 균등 배치
   background: white;
   border-radius: 15px;
   overflow: hidden;
@@ -505,23 +440,22 @@ export const PromotionCard = styled.div`
   }
 
   @media (max-width: 1280px) {
-    width: calc(25% - 15px); // 1280px 이하에서는 한 줄에 4개로 표시
+    width: calc(33.333% - 14px); // 1280px 이하에서는 한 줄에 3개로 표시
   }
 
   @media (max-width: ${breakpoints.lg}) {
     width: calc(33.333% - 14px); // 대중형 화면에서는 한 줄에 3개로 표시
-    margin-bottom: 20px;
   }
 
   @media (max-width: ${breakpoints.md}) {
     width: calc(50% - 10px); // 태블릿에서는 한 줄에 2개로 표시
-    margin-bottom: 16px;
+    margin-bottom: 0;
   }
 
   @media (max-width: ${breakpoints.sm}) {
-    width: 100%;
-    max-width: 320px; // 모바일에서는 한 줄에 1개로 표시
-    margin: 0 auto 16px;
+    width: 100%; // 모바일에서는 한 줄에 1개로 표시
+    max-width: 90%; // 최대 너비 제한
+    margin: 0 auto 10px;
   }
 `;
 

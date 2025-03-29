@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '@/style/theme';
 import GlobalStyle from '@/style/GlobalStyles';
-import MainPage from '@/pages/MainPage';
+import MainPage from '@/pages/MainPage/MainPage';
 import MenuPage from '@/pages/MenuPage/index';
 import MonthlyPage from '@/pages/MenuPage/MonthlyPage';
 import BRplayPage from '@/pages/BRplayPage';

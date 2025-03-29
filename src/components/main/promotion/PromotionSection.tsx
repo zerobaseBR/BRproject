@@ -4,19 +4,16 @@ import PromoCard from './PromoCard';
 import { promotionItems } from './promoData';
 
 export default function PromotionSection() {
-  // 상태 관리 최적화
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // 스크롤 이벤트 핸들러 최적화
   const handleScroll = useCallback(() => {
     if (sectionRef.current) {
       const sectionTop = sectionRef.current.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
       if (sectionTop < windowHeight * 0.75) {
-        // 화면에 섹션이 보이면 프로모션 카드들이 순차적으로 나타나도록 처리
         const timer = setTimeout(() => {
           setVisibleItems(promotionItems.map(promo => promo.id));
         }, 300);
@@ -27,16 +24,6 @@ export default function PromotionSection() {
     }
   }, []);
 
-  // 마우스 이벤트 핸들러
-  const handleMouseEnter = useCallback((index: number) => {
-    setHoverIndex(index);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setHoverIndex(null);
-  }, []);
-
-  // 스크롤 이벤트 등록
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // 초기 로드 시 한 번 체크
@@ -62,8 +49,8 @@ export default function PromotionSection() {
               isVisible={visibleItems.includes(promo.id)}
               index={index}
               isHovered={hoverIndex === index}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setHoverIndex(index)}
+              onMouseLeave={() => setHoverIndex(null)}
             />
           ))}
         </S.PromotionContainer>

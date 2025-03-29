@@ -276,15 +276,6 @@ export const SectionTitle = styled.div`
     font-family: var(--font-family-ko);
   }
 
-  &::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 3px;
-    background-color: #ff7c98;
-    margin: 25px auto 0;
-  }
-
   @media (max-width: ${breakpoints.md}) {
     h2 {
       font-size: 40px;
@@ -784,49 +775,75 @@ export const CardPeriod = styled.p`
 
 // 카드 타이틀 개선
 export const CardTitle = styled.h3`
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: var(--font-family-ko);
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   position: relative;
-  background: linear-gradient(to right, #ff7c98, #ff5484);
+  padding: 5px 0;
+
+  // 배경 그라데이션 강화
+  background: linear-gradient(to right, #ff5484, #ff3b70);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0px 0px 1px rgba(255, 124, 152, 0.2);
+  text-shadow: 0px 1px 1px rgba(255, 84, 132, 0.15);
 
-  // 밑줄 효과 추가
+  // 강조 효과 추가
+  &::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background-color: #ff3b70;
+    border-radius: 3px;
+    transition: height 0.3s ease;
+  }
+
+  // 밑줄 효과 강화
   &::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: 2px;
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #ff7c98;
+    background-color: #ff3b70;
     transition: width 0.4s ease;
   }
 
+  &.highlighted,
   ${PromotionCard}:hover & {
-    color: transparent;
-    background: linear-gradient(to right, #ff5484, #ff3b70);
-    -webkit-background-clip: text;
-    background-clip: text;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    font-size: 19px;
+    letter-spacing: 0.3px;
+    margin-left: 5px;
+
+    &::before {
+      height: 80%;
+    }
 
     &::after {
-      width: 40%;
+      width: 70%;
     }
   }
 
   @media (max-width: ${breakpoints.md}) {
     font-size: 16px;
+
+    &.highlighted,
+    ${PromotionCard}:hover & {
+      font-size: 17px;
+    }
   }
 
   @media (max-width: ${breakpoints.sm}) {
@@ -836,7 +853,12 @@ export const CardTitle = styled.h3`
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     height: auto;
-    max-height: 40px;
+    max-height: 42px;
+
+    &.highlighted,
+    ${PromotionCard}:hover & {
+      font-size: 16px;
+    }
   }
 `;
 

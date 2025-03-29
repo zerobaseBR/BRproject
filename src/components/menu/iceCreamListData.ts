@@ -19,7 +19,7 @@ import IceCream18 from '@/assets/images/menu/icecream18.png';
 import IceCream19 from '@/assets/images/menu/icecream19.png';
 import IceCream20 from '@/assets/images/menu/icecream20.png';
 
-export const IceCreamList = [
+export const IceCreamListData = [
   {
     id: 1,
     name: '말랑 딸기 찹쌀떡',

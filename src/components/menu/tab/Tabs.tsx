@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-import * as S from '@/components/menu/Tabs.style';
+import * as S from '@/components/menu/tab/Tabs.style';
 
 const tabsList = [
   { id: 1, text: '이달의 맛', link: '/menu/monthly' },

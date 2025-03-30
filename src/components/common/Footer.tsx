@@ -53,23 +53,25 @@ export default function Footer() {
           </S.FooterPolicyListItem>
         </S.FooterPolicyList>
         <S.FooterInformationAndSiteMenuContainer>
-          <div>
+          <S.FooterInformationContainer>
             <Link to="/">
               <img src={Logo} alt="배스킨라빈스 로고" />
             </Link>
-            <S.FooterInformationTextContainer>
-              <S.FooterInformationText>사업자 등록번호 : 303-81-09535</S.FooterInformationText>
-              <S.FooterInformationText>비알코리아(주) 대표이사 도세호</S.FooterInformationText>
-              <S.FooterInformationText>
-                서울특별시 서초구 남부순환로 2620(양재동 11-149번지)
-              </S.FooterInformationText>
-              <S.FooterInformationText>TEL : 080-555-3131</S.FooterInformationText>
-              <S.FooterInformationText>개인정보관리책임자 : 김민숙/상무</S.FooterInformationText>
-            </S.FooterInformationTextContainer>
-            <S.FooterInformationTextCopyright>
-              Copyright © 2023 BRKOREA Company. All Rights Reserved.
-            </S.FooterInformationTextCopyright>
-          </div>
+            <div>
+              <S.FooterInformationTextContainer>
+                <S.FooterInformationText>사업자 등록번호 : 303-81-09535</S.FooterInformationText>
+                <S.FooterInformationText>비알코리아(주) 대표이사 도세호</S.FooterInformationText>
+                <S.FooterInformationText>
+                  서울특별시 서초구 남부순환로 2620(양재동 11-149번지)
+                </S.FooterInformationText>
+                <S.FooterInformationText>TEL : 080-555-3131</S.FooterInformationText>
+                <S.FooterInformationText>개인정보관리책임자 : 김민숙/상무</S.FooterInformationText>
+              </S.FooterInformationTextContainer>
+              <S.FooterInformationTextCopyright>
+                Copyright © 2023 BRKOREA Company. All Rights Reserved.
+              </S.FooterInformationTextCopyright>
+            </div>
+          </S.FooterInformationContainer>
           <S.FooterInformationSiteMenuContainer>
             <li>
               <Link to="/menu">

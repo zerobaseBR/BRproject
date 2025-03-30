@@ -14,7 +14,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <BrowserRouter>
-          <section>
+          <section style={{ fontFamily: 'NanumSquareNeo' }}>
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/menu" element={<MenuPage />} />

@@ -3,26 +3,27 @@ import styled from 'styled-components';
 export const MenuPageContainer = styled.div`
   max-width: 1440px;
   margin: 0 auto;
-  padding: 80px 24px 170px;
+  padding: 52px 24px 140px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    padding: 60px 16px 140px;
+    padding: 32px 16px 120px;
   }
 `;
 
 export const MenuPageHeaderTitle = styled.h2`
+  font-family: 'NanumSquareNeoHeavy';
   color: #f986bd;
-  font-size: 90px;
+  font-size: 72px;
   font-weight: 700;
   text-align: center;
   margin-top: 60px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    font-size: 84px;
+    font-size: 56px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    font-size: 60px;
+    font-size: 40px;
   }
 `;
 

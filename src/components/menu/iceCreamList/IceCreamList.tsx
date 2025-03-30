@@ -1,6 +1,6 @@
 import * as S from '@/components/menu/iceCreamList/IceCreamList.style';
 
-import { IceCreamListData } from '@/components/menu/iceCreamListData';
+import { IceCreamListData } from '@/components/menu/iceCreamList/iceCreamListData';
 
 export default function IceCreamList() {
   return (

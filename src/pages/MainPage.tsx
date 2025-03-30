@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import Banner from '@/components/main/banner/Banner';
 import BeBetterSection from '@/components/main/bebetter/BeBetterSection';
 import BenefitSection from '../components/main/brBenefit/BenefitSection';
 import PromotionSection from '@/components/main/promotion/PromotionSection';
@@ -28,6 +29,7 @@ const MainPage: React.FC = () => {
     <>
       <GlobalStyle />
       <PageWrapper>
+        <Banner />
         <PromotionSection />
         <BeBetterSection />
         <BenefitSection />

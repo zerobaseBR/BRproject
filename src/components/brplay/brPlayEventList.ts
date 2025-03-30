@@ -116,7 +116,7 @@ export const EventCards: Card[] = [
     id: '12',
     category: '제휴혜택',
     image: eventImage12,
-    title: 'T 멤버십 회원 대상 싱글레귤러 최대 50% 할인 또는 적립립',
+    title: 'T 멤버십 회원 대상 싱글레귤러 최대 50% 할인 또는 적립',
     dateRange: '상시 운영',
     tag: 'D-308',
   },

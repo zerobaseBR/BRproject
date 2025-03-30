@@ -4,42 +4,60 @@ import PromoCard from './PromoCard';
 import { promotionItems } from './promoData';
 
 export default function PromotionSection() {
-  // 상태 관리 최적화
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [textAnimated, setTextAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // 스크롤 이벤트 핸들러 최적화
+  // 스크롤 핸들러 최적화
   const handleScroll = useCallback(() => {
-    if (sectionRef.current) {
-      const sectionTop = sectionRef.current.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+    if (!sectionRef.current) return;
 
-      if (sectionTop < windowHeight * 0.75) {
-        // 화면에 섹션이 보이면 프로모션 카드들이 순차적으로 나타나도록 처리
-        const timer = setTimeout(() => {
-          setVisibleItems(promotionItems.map(promo => promo.id));
-        }, 300);
+    const sectionTop = sectionRef.current.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
-        window.removeEventListener('scroll', handleScroll);
-        return () => clearTimeout(timer);
-      }
+    if (sectionTop < windowHeight * 0.75) {
+      setIsLoaded(true);
+
+      // 텍스트 애니메이션 지연 적용
+      const textAnimationTimer = setTimeout(() => {
+        setTextAnimated(true);
+      }, 800);
+
+      // 아이템 표시 지연 적용
+      const itemsTimer = setTimeout(() => {
+        const showItems = () => {
+          let currentItems: number[] = [];
+
+          const showNextItem = (index = 0) => {
+            if (index >= promotionItems.length) return;
+
+            currentItems.push(promotionItems[index].id);
+            setVisibleItems([...currentItems]);
+
+            setTimeout(() => showNextItem(index + 1), 120);
+          };
+
+          showNextItem();
+        };
+
+        showItems();
+      }, 300);
+
+      window.removeEventListener('scroll', handleScroll);
+
+      return () => {
+        clearTimeout(textAnimationTimer);
+        clearTimeout(itemsTimer);
+      };
     }
-  }, []);
-
-  // 마우스 이벤트 핸들러
-  const handleMouseEnter = useCallback((index: number) => {
-    setHoverIndex(index);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setHoverIndex(null);
   }, []);
 
   // 스크롤 이벤트 등록
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // 초기 로드 시 한 번 체크
+    handleScroll(); // 초기 로드시 확인
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -48,12 +66,37 @@ export default function PromotionSection() {
 
   return (
     <S.PromotionWrapper ref={sectionRef}>
-      <S.SectionTitle>
-        <h2>Promotion</h2>
-        <p>베라의 다양한 혜택과 이벤트를 만나보세요</p>
+      <S.GlobalStyles />
+
+      {/* 섹션 타이틀 */}
+      <S.SectionTitle
+        style={{
+          opacity: isLoaded ? 1 : 0,
+          transform: isLoaded ? 'translateY(0)' : 'translateY(30px)',
+          transition: 'all 0.8s ease-out',
+        }}
+      >
+        <h2 className={textAnimated ? 'animated' : ''}>Promotion</h2>
+        <p
+          className={textAnimated ? 'animated' : ''}
+          style={{
+            opacity: textAnimated ? 1 : 0,
+            transform: textAnimated ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 0.5s ease-out 0.3s',
+          }}
+        >
+          베라의 다양한 혜택과 이벤트를 만나보세요
+        </p>
       </S.SectionTitle>
 
-      <S.PromotionBackground>
+      {/* 프로모션 백그라운드 */}
+      <S.PromotionBackground
+        style={{
+          opacity: isLoaded ? 1 : 0,
+          transform: isLoaded ? 'translateY(0)' : 'translateY(40px)',
+          transition: 'all 1s ease-out 0.2s',
+        }}
+      >
         <S.PromotionContainer>
           {promotionItems.map((promo, index) => (
             <PromoCard
@@ -62,8 +105,8 @@ export default function PromotionSection() {
               isVisible={visibleItems.includes(promo.id)}
               index={index}
               isHovered={hoverIndex === index}
-              onMouseEnter={() => handleMouseEnter(index)}
-              onMouseLeave={handleMouseLeave}
+              onMouseEnter={() => setHoverIndex(index)}
+              onMouseLeave={() => setHoverIndex(null)}
             />
           ))}
         </S.PromotionContainer>

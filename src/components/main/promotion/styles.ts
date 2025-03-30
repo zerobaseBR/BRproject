@@ -3,24 +3,6 @@ import { theme } from '@/style/theme';
 
 const { breakpoints } = theme;
 
-// 폰트 정의를 컴포넌트 내부에서만 정의
-export const FontStyles = createGlobalStyle`
-  @font-face {
-    font-family: 'Scoop';
-    src: url('/fonts/Scoop.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  :root {
-    --font-family-ko: Sandoll GothicNeo1 TTF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
-    --font-family-en: Sandoll GothicNeo1 TTF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
-    --font-family-scoop: "Scoop", Sandoll GothicNeo1 TTF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
-  }
-`;
-
-// 애니메이션 정의
 export const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -43,16 +25,136 @@ export const rotateIn = keyframes`
   }
 `;
 
-// 공통 스타일 관련 객체 생성
+export const textFocus = keyframes`
+  0% {
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+`;
 
-// 프로모션 섹션 전체 컨테이너 개선
+export const textShimmer = keyframes`
+  to {
+    background-position: 200% center;
+  }
+`;
+
+export const pulseEffect = keyframes`
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(255, 124, 152, 0.1);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(255, 124, 152, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(255, 124, 152, 0.1);
+  }
+`;
+
+export const shimmerEffect = keyframes`
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+`;
+
+export const GlobalStyles = createGlobalStyle`
+  :root {
+    --font-family-ko: Sandoll GothicNeo1 TTF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+    --font-family-en: Sandoll GothicNeo1 TTF, -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+  }
+  
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  .animated {
+    animation: ${textFocus} 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  }
+
+  .multi-color-text {
+    background: linear-gradient(to right, #ff3b70, #ff7c98, #ff3b70);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: ${textShimmer} 3s linear infinite;
+  }
+
+  .special-event {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    color: #ff3b70;
+  }
+
+  .special-event::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #ff3b70, transparent);
+  }
+
+  .price {
+    font-weight: 800 !important;
+    color: #ff2d67 !important;
+    font-style: normal;
+    position: relative;
+    display: inline-block;
+    padding: 0 2px;
+  }
+
+  .price::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgba(255, 84, 132, 0.2);
+    z-index: -1;
+    transition: height 0.2s ease, background-color 0.2s ease;
+  }
+
+  .price-off:hover .price::after {
+    height: 8px;
+    background-color: rgba(255, 84, 132, 0.3);
+  }
+
+  .discount-term {
+    font-weight: 600;
+    color: #ff5484;
+  }
+  
+  .footnote {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+    font-style: italic;
+  }
+`;
+
 export const PromotionWrapper = styled.section`
   padding: 100px 0;
   background: #fff;
   overflow: hidden;
   position: relative;
 
-  // 배경 효과 강화
   &::before {
     content: '';
     position: absolute;
@@ -68,7 +170,6 @@ export const PromotionWrapper = styled.section`
     z-index: 0;
   }
 
-  // 곡선 장식 추가
   &::after {
     content: '';
     position: absolute;
@@ -254,18 +355,48 @@ export const ProductSection = styled.div`
 // 섹션 타이틀 - 정확한 폰트 적용
 export const SectionTitle = styled.div`
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   position: relative;
+  padding: 20px 0;
 
   h2 {
     color: #ff5484;
-    font-family: var(--font-family-scoop);
+    font-family: var(--font-family-en);
     font-weight: 700;
     font-size: 50px;
     text-align: center;
     line-height: 1;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+    text-shadow: 2px 2px 0px rgba(255, 124, 152, 0.15); // 입체감을 위한 텍스트 그림자
+
+    // 장식 효과 추가
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23ff7c98' stroke-width='1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.5;
+      transform: rotate(15deg);
+    }
+
+    &::before {
+      top: -15px;
+      left: -45px;
+      animation: ${pulseEffect} 3s ease-in-out infinite;
+    }
+
+    &::after {
+      top: -10px;
+      right: -45px;
+      animation: ${pulseEffect} 3s ease-in-out infinite 1.5s;
+    }
   }
 
   p {
@@ -274,20 +405,44 @@ export const SectionTitle = styled.div`
     font-weight: 400;
     line-height: 1.5;
     font-family: var(--font-family-ko);
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    letter-spacing: 0.3px; // 자간 미세 조정
+    word-spacing: 1px; // 단어 간격 추가
   }
 
+  // 하단 장식 추가
   &::after {
     content: '';
-    display: block;
-    width: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
     height: 3px;
-    background-color: #ff7c98;
-    margin: 25px auto 0;
+    background: linear-gradient(90deg, transparent, #ff7c98, transparent);
   }
 
   @media (max-width: ${breakpoints.md}) {
+    margin-bottom: 50px;
+
     h2 {
       font-size: 40px;
+
+      &::before,
+      &::after {
+        width: 30px;
+        height: 30px;
+      }
+
+      &::before {
+        left: -35px;
+      }
+
+      &::after {
+        right: -35px;
+      }
     }
 
     p {
@@ -296,8 +451,24 @@ export const SectionTitle = styled.div`
   }
 
   @media (max-width: ${breakpoints.sm}) {
+    margin-bottom: 40px;
+
     h2 {
       font-size: 36px;
+
+      &::before,
+      &::after {
+        width: 24px;
+        height: 24px;
+      }
+
+      &::before {
+        left: -30px;
+      }
+
+      &::after {
+        right: -30px;
+      }
     }
 
     p {
@@ -363,105 +534,41 @@ export const PromotionBackground = styled.div`
   }
 `;
 
-// 프로모션 컨테이너 - 반응형 개선
+// 프로모션 컨테이너 - 균형 있는 레이아웃으로 개선
 export const PromotionContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; // 중앙 정렬로 변경
+  justify-content: center;
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 
-  // 터널 형태를 위한 구조 (아이템별로 높이 차이)
-  & > div:nth-child(1) {
-    margin-top: 30px;
-  }
-
-  & > div:nth-child(2) {
-    margin-top: 0;
-  }
-
-  & > div:nth-child(3) {
-    margin-top: 30px;
-  }
-
-  & > div:nth-child(4) {
-    margin-top: 60px;
-  }
-
-  & > div:nth-child(5) {
-    margin-top: 30px;
-  }
-
-  @media (max-width: ${breakpoints.lg}) {
-    & > div:nth-child(4),
-    & > div:nth-child(5) {
-      margin-top: 0;
-    }
+  // 모든 카드가 동일한 레벨에 표시되도록 마진 제거
+  & > div {
+    margin-top: 0 !important;
   }
 
   @media (max-width: ${breakpoints.md}) {
-    & > div {
-      margin-top: 0 !important;
-    }
-  }
-
-  // 터널 형태를 위한 구조 설정 (화면 크기에 따라 다르게 적용)
-  @media (min-width: 1281px) {
-    & > div:nth-child(1) {
-      margin-top: 30px;
-    }
-    & > div:nth-child(2) {
-      margin-top: 0;
-    }
-    & > div:nth-child(3) {
-      margin-top: 30px;
-    }
-    & > div:nth-child(4) {
-      margin-top: 60px;
-    }
-    & > div:nth-child(5) {
-      margin-top: 30px;
-    }
-  }
-
-  @media (max-width: 1280px) and (min-width: ${breakpoints.lg}) {
-    & > div:nth-child(1) {
-      margin-top: 20px;
-    }
-    & > div:nth-child(2) {
-      margin-top: 0;
-    }
-    & > div:nth-child(3) {
-      margin-top: 20px;
-    }
-    & > div:nth-child(4) {
-      margin-top: 0;
-    }
-  }
-
-  @media (max-width: ${breakpoints.lg}) {
-    & > div {
-      margin-top: 0 !important;
-    }
+    gap: 15px;
   }
 `;
 
-// 프로모션 카드 - 반응형 개선
+// 프로모션 카드 - 카드 크기 균형 조정
 export const PromotionCard = styled.div`
-  width: calc(20% - 16px);
+  width: calc(20% - 16px); // 5개 카드 균등 배치
   background: white;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.06);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   transform: perspective(1000px);
   display: flex;
   flex-direction: column;
   height: 100%;
   position: relative;
   z-index: 1;
+  backface-visibility: hidden;
 
   // 그라데이션 효과 추가
   &::before {
@@ -505,32 +612,45 @@ export const PromotionCard = styled.div`
     }
   }
 
+  // 클릭 효과 추가
+  &:active {
+    transform: perspective(1000px) translateY(-8px) rotateX(1deg);
+    transition: all 0.2s ease;
+  }
+
   a {
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
     height: 100%;
+    user-select: none;
+  }
+
+  // 포커스 상태 추가 (접근성 향상)
+  a:focus-visible {
+    outline: 3px solid #ff7c98;
+    outline-offset: 2px;
+    border-radius: 15px;
   }
 
   @media (max-width: 1280px) {
-    width: calc(25% - 15px); // 1280px 이하에서는 한 줄에 4개로 표시
+    width: calc(33.333% - 14px); // 1280px 이하에서는 한 줄에 3개로 표시
   }
 
   @media (max-width: ${breakpoints.lg}) {
     width: calc(33.333% - 14px); // 대중형 화면에서는 한 줄에 3개로 표시
-    margin-bottom: 20px;
   }
 
   @media (max-width: ${breakpoints.md}) {
     width: calc(50% - 10px); // 태블릿에서는 한 줄에 2개로 표시
-    margin-bottom: 16px;
+    margin-bottom: 0;
   }
 
   @media (max-width: ${breakpoints.sm}) {
-    width: 100%;
-    max-width: 320px; // 모바일에서는 한 줄에 1개로 표시
-    margin: 0 auto 16px;
+    width: 100%; // 모바일에서는 한 줄에 1개로 표시
+    max-width: 90%; // 최대 너비 제한
+    margin: 0 auto 10px;
   }
 `;
 
@@ -626,7 +746,7 @@ export const CardOverlay = styled.div`
   }
 `;
 
-// 상세보기 버튼 - 애니메이션 개선
+// 상세보기 버튼 - 화살표 제거 및 스타일 개선
 export const ViewButton = styled.div`
   padding: 12px 28px;
   background: #ff7c98;
@@ -641,61 +761,43 @@ export const ViewButton = styled.div`
   position: relative;
   overflow: hidden;
   letter-spacing: 0.5px;
+  user-select: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 
-  // 반짝이는 효과 추가
+  // 반짝이는 효과 추가 (화살표 대신)
   &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      to right,
-      transparent 45%,
-      rgba(255, 255, 255, 0.7) 50%,
-      transparent 55%
-    );
-    transform: rotate(45deg);
-    transition: all 0.7s ease;
-    z-index: 1;
-    opacity: 0;
-  }
-
-  // 테두리 효과 추가
-  &::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 30px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    transform: scale(1.2);
-    opacity: 0;
-    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
   }
 
   ${PromotionCard}:hover & {
     transform: translateY(0);
     box-shadow: 0 15px 30px rgba(255, 84, 132, 0.3);
+    font-weight: 700;
 
     &::before {
-      opacity: 1;
-      transform: rotate(45deg) translateX(100%);
+      transform: translateX(100%);
     }
+  }
 
-    &::after {
-      transform: scale(1);
-      opacity: 1;
-    }
+  // 클릭 효과
+  ${PromotionCard}:active & {
+    transform: translateY(2px);
+    box-shadow: 0 8px 15px rgba(255, 84, 132, 0.2);
+    transition: all 0.2s ease;
   }
 `;
 
-// 카드 콘텐츠 개선 - 반응형 개선
+// 카드 콘텐츠 개선 - 반응형 개선 및 고정 높이 설정
 export const CardContent = styled.div`
-  padding: 20px;
+  padding: 25px 20px;
   background: white;
   flex: 1;
   display: flex;
@@ -704,6 +806,7 @@ export const CardContent = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
   position: relative;
+  min-height: 160px; // 최소 높이 설정으로 일관성 확보
 
   // 배경 그라데이션 효과
   &::before {
@@ -719,181 +822,359 @@ export const CardContent = styled.div`
     z-index: -1;
   }
 
+  // 페이퍼 효과 추가
+  &::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: 60%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.03);
+    filter: blur(5px);
+    transform: rotate(-3deg);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+  }
+
   ${PromotionCard}:hover & {
     &::before {
+      opacity: 1;
+    }
+
+    &::after {
       opacity: 1;
     }
   }
 
   @media (max-width: ${breakpoints.md}) {
-    padding: 15px;
+    padding: 20px 15px;
+    min-height: 150px;
   }
 
   @media (max-width: ${breakpoints.sm}) {
-    padding: 15px;
-    min-height: 120px; // 일관된 높이 보장
+    padding: 20px 15px;
+    min-height: 140px;
   }
 `;
 
-// 카드 기간 스타일 개선
+// 카드 기간 스타일 개선 - 디자인 수정 및 버그 수정
 export const CardPeriod = styled.p`
-  font-size: 13px;
+  font-size: 12px;
   color: #ff7c98;
-  margin-bottom: 10px;
-  font-weight: 500;
+  margin-bottom: 12px;
+  font-weight: 600;
   font-family: var(--font-family-ko);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   background-color: rgba(255, 124, 152, 0.08);
-  padding: 5px 10px;
+  padding: 6px 12px;
   border-radius: 20px;
   width: fit-content;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.3px;
 
+  // 캘린더 아이콘
   &::before {
     content: '\f073'; /* 캘린더 아이콘 (Font Awesome) */
     font-family: 'Font Awesome 5 Free';
-    margin-right: 6px;
+    margin-right: 8px;
     font-size: 12px;
     color: #ff7c98;
+    font-weight: 900;
+  }
+
+  // 반짝이는 배경 효과
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    animation: ${shimmerEffect} 3s infinite linear;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  // 상시 진행 이벤트 스타일 차별화
+  &.permanent {
+    background-color: rgba(96, 179, 87, 0.1);
+    color: #4caf50;
+
+    &::before {
+      content: '\f3c5'; // 위치 아이콘 (Font Awesome)
+      color: #4caf50;
+    }
+
+    ${PromotionCard}:hover & {
+      background-color: rgba(96, 179, 87, 0.2);
+      color: #3d8b40;
+    }
   }
 
   ${PromotionCard}:hover & {
     background-color: rgba(255, 124, 152, 0.15);
     color: #ff5484;
     transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(255, 124, 152, 0.1);
+
+    &::after {
+      opacity: 1;
+    }
   }
 
   @media (max-width: ${breakpoints.md}) {
     font-size: 12px;
-    padding: 4px 8px;
-    margin-bottom: 8px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
   }
 
   @media (max-width: ${breakpoints.sm}) {
     font-size: 11px;
-    padding: 3px 7px;
-    margin-bottom: 7px;
+    padding: 4px 9px;
+    margin-bottom: 8px;
 
     &::before {
       font-size: 11px;
-      margin-right: 4px;
+      margin-right: 6px;
     }
   }
 `;
 
-// 카드 타이틀 개선
+// 카드 타이틀 개선 - 높이 제한 및 다중 라인 처리
 export const CardTitle = styled.h3`
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   line-height: 1.3;
-  white-space: nowrap;
+  font-family: var(--font-family-ko);
+  transition: all 0.4s ease;
+  position: relative;
+  padding: 5px 0;
+  min-height: 2.6em; // 최소 2줄 높이 확보
+  letter-spacing: -0.2px; // 제목 스타일에 적합한 자간 미세 조정
+
+  // 2줄까지 표시하고 말줄임표 처리
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: var(--font-family-ko);
-  transition: all 0.3s ease;
-  position: relative;
-  background: linear-gradient(to right, #ff7c98, #ff5484);
+
+  // 배경 그라데이션 강화 및 텍스트 선명도 향상
+  background: linear-gradient(135deg, #ff5484, #ff3b70);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0px 0px 1px rgba(255, 124, 152, 0.2);
+  text-shadow: 0px 1px 1px rgba(255, 84, 132, 0.15);
 
-  // 밑줄 효과 추가
+  // 진한 텍스트 효과를 위한 추가 속성
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+
+  // 왼쪽 강조 효과 추가
+  &::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(to bottom, #ff7c98, #ff3b70);
+    border-radius: 3px;
+    transition: height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  // 밑줄 효과 강화
   &::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: 2px;
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #ff7c98;
-    transition: width 0.4s ease;
+    background: linear-gradient(to right, #ff3b70, #ff7c98);
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
+  &.highlighted,
   ${PromotionCard}:hover & {
-    color: transparent;
-    background: linear-gradient(to right, #ff5484, #ff3b70);
-    -webkit-background-clip: text;
-    background-clip: text;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    font-size: 19px;
+    letter-spacing: 0px; // 호버 시 자간 조정
+    margin-left: 5px;
+    text-shadow: 0px 2px 2px rgba(255, 84, 132, 0.2); // 강화된 그림자
+
+    &::before {
+      height: 80%;
+    }
 
     &::after {
-      width: 40%;
+      width: 70%;
     }
   }
 
   @media (max-width: ${breakpoints.md}) {
     font-size: 16px;
+    min-height: 2.6em;
+
+    &.highlighted,
+    ${PromotionCard}:hover & {
+      font-size: 17px;
+    }
   }
 
   @media (max-width: ${breakpoints.sm}) {
     font-size: 15px;
-    white-space: normal;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    height: auto;
-    max-height: 40px;
+    min-height: 2.6em;
+
+    &.highlighted,
+    ${PromotionCard}:hover & {
+      font-size: 16px;
+    }
   }
 `;
 
-// 카드 설명 개선
+// 카드 설명 개선 - 시각적 강조와 가독성 향상
 export const CardDescription = styled.p`
   font-size: 14px;
-  color: #777;
+  color: #666;
   line-height: 1.5;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   min-height: 42px;
+  max-height: 42px;
   font-family: var(--font-family-ko);
-  transition: all 0.3s ease;
-  margin-top: 4px;
+  transition: all 0.35s ease;
+  margin-top: 10px;
   position: relative;
-  padding-left: 14px;
+  padding-left: 22px;
+  letter-spacing: 0.3px;
+  word-spacing: 0.5px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-right: 8px;
 
+  // 아이콘 추가
   &::before {
-    content: '';
+    content: '\f3ff'; // 태그 아이콘 (Font Awesome - 선물/할인)
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
     position: absolute;
-    left: 0;
-    top: 8px;
-    width: 6px;
-    height: 6px;
-    background-color: #ff7c98;
-    border-radius: 50%;
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    left: 6px;
+    top: 3px;
+    font-size: 12px;
+    color: #ff5484;
+    opacity: 0.9;
+    transition: all 0.35s ease;
+  }
+
+  // 할인 금액이나 숫자 강조
+  strong,
+  em,
+  .highlight {
+    font-weight: 700;
+    color: #ff3b70;
+    font-style: normal;
+    position: relative;
+    padding: 0 2px;
+
+    // 밑줄 효과
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      width: 100%;
+      height: 5px;
+      background-color: rgba(255, 84, 132, 0.15);
+      border-radius: 2px;
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+  }
+
+  // 가격 할인 타입일 때 아이콘 변경
+  &.price-off::before {
+    content: '\f155'; // 달러 아이콘
+  }
+
+  // 업그레이드 타입일 때 아이콘 변경
+  &.upgrade::before {
+    content: '\f062'; // 위 화살표 아이콘
+  }
+
+  // 1+1 혜택 타입일 때 아이콘 변경
+  &.plus-one::before {
+    content: '\f067'; // 플러스 아이콘
   }
 
   ${PromotionCard}:hover & {
-    color: #333;
+    color: #444;
+    transform: translateY(-2px);
+    background-color: rgba(255, 246, 248, 0.9);
+    box-shadow: 0 3px 10px rgba(255, 124, 152, 0.1);
+    letter-spacing: 0.4px;
 
     &::before {
-      opacity: 1;
-      transform: scale(1.2);
-      background-color: #ff5484;
+      color: #ff3b70;
+      transform: scale(1.15) translateX(1px);
+    }
+
+    strong,
+    em,
+    .highlight {
+      color: #ff3b70;
+
+      &::after {
+        height: 7px;
+        background-color: rgba(255, 84, 132, 0.25);
+        bottom: 0px;
+      }
     }
   }
 
   @media (max-width: ${breakpoints.md}) {
     font-size: 13px;
     min-height: 39px;
+    max-height: 39px;
     -webkit-line-clamp: 2;
+    padding-left: 20px;
+
+    &::before {
+      font-size: 11px;
+      left: 5px;
+    }
   }
 
   @media (max-width: ${breakpoints.sm}) {
     font-size: 13px;
     min-height: 39px;
-    padding-left: 12px;
+    max-height: 39px;
+    padding-left: 18px;
 
     &::before {
-      top: 6px;
-      width: 5px;
-      height: 5px;
+      top: 3px;
+      font-size: 10px;
+      left: 4px;
     }
   }
 `;

@@ -18,6 +18,14 @@ export const IceCreamFilterTabsItem = styled.li<{ $active: boolean }>`
   border-radius: 16px;
   cursor: pointer;
 
+  ${({ $active }) =>
+    !$active &&
+    `
+    &:hover {
+      color: #f5b9d6;
+    }
+  `}
+
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     padding: 6px 10px;
     font-size: 12px;

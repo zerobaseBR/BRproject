@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 interface ActiveButton {
-  isActive: boolean;
+  $isActive: boolean;
 }
 
 export const TabWrap = styled.ul`
@@ -19,9 +19,9 @@ export const TabButton = styled.li<ActiveButton>`
   align-items: center;
   width: 150px;
   height: 30px;
-  border-bottom: ${({ isActive }) => (isActive ? 'none' : '1px solid #d4d4d4')};
-  font-weight: ${({ isActive }) => (isActive ? 'bold' : 'normal')};
-  color: ${({ isActive }) => (isActive ? 'black' : '#948780')};
+  border-bottom: ${({ $isActive }) => ($isActive ? 'none' : '1px solid #d4d4d4')};
+  font-weight: ${({ $isActive }) => ($isActive ? 'bold' : 'normal')};
+  color: ${({ $isActive }) => ($isActive ? 'black' : '#948780')};
 
   &:hover {
     color: black;

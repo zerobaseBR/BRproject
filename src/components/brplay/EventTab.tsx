@@ -10,17 +10,17 @@ export default function EventTab() {
   return (
     <div>
       <S.TabWrap>
-        <S.TabButton isActive={selectedTab === '전체'} onClick={() => setSelectedTab('전체')}>
+        <S.TabButton $isActive={selectedTab === '전체'} onClick={() => setSelectedTab('전체')}>
           전체
         </S.TabButton>
         <S.TabButton
-          isActive={selectedTab === '제휴혜택'}
+          $isActive={selectedTab === '제휴혜택'}
           onClick={() => setSelectedTab('제휴혜택')}
         >
           제휴혜택
         </S.TabButton>
         <S.TabButton
-          isActive={selectedTab === '프로모션'}
+          $isActive={selectedTab === '프로모션'}
           onClick={() => setSelectedTab('프로모션')}
         >
           프로모션

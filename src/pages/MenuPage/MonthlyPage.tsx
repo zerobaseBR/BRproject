@@ -6,6 +6,8 @@ import IngredientList from '@/components/menu/ingredientList/IngredientList';
 import PekoImage from '@/assets/images/menu/monthly-peko.png';
 import NewProductList from '@/components/menu/newProductList/NewProductList';
 
+import { nutritionListData } from '@/components/menu/nutritionListData';
+
 export default function MonthlyPage() {
   return (
     <S.MonthlyPageContainer>
@@ -24,6 +26,21 @@ export default function MonthlyPage() {
           <S.MonthlyPageBodyMainImage>
             <img src={PekoImage} alt="peko 이미지" />
           </S.MonthlyPageBodyMainImage>
+          <S.MonthlyPageBodynNutritionContainer>
+            <S.MonthlyPageBodynNutritionTitle>영양정보</S.MonthlyPageBodynNutritionTitle>
+            <S.MonthlyPageBodynNutritionList>
+              {nutritionListData.map(nutrition => (
+                <S.MonthlyPageBodynNutritionListItem>
+                  <S.MonthlyPageBodynNutritionListName>
+                    {nutrition.name}
+                  </S.MonthlyPageBodynNutritionListName>
+                  <S.MonthlyPageBodynNutritionListText>
+                    {nutrition.text}
+                  </S.MonthlyPageBodynNutritionListText>
+                </S.MonthlyPageBodynNutritionListItem>
+              ))}
+            </S.MonthlyPageBodynNutritionList>
+          </S.MonthlyPageBodynNutritionContainer>
         </S.MonthlyPageBodyMainImageContainer>
       </S.MonthlyPageBodyContainer>
       <NewProductList />

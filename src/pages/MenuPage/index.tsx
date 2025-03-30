@@ -7,7 +7,7 @@ export default function MenuPage() {
   return (
     <S.MenuPageContainer>
       <Tabs />
-      <S.MenuPageHeaderTitle>Ice Cream</S.MenuPageHeaderTitle>
+      <S.MenuPageHeaderTitle>ICE CREAM</S.MenuPageHeaderTitle>
       <S.MenuPageHeaderText>
         한 입에 물면 달콤하게 사르르 녹는 아이스크림.
         <br />

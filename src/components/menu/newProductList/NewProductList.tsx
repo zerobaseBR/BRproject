@@ -34,7 +34,7 @@ export default function NewProductList() {
                 <img src={newProduct.imageSrc} alt={`${newProduct.name} 이미지`} />
               </S.NewProductItemImage>
             </S.NewProductItemImageContainer>
-            <S.NewProductItemName></S.NewProductItemName>
+            <S.NewProductItemName>{newProduct.name}</S.NewProductItemName>
           </S.NewProductItem>
         ))}
       </S.NewProductsList>

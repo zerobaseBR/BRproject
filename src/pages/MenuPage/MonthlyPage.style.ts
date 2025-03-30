@@ -34,7 +34,7 @@ export const MonthlyPageBodyContainer = styled.div`
   width: fit-content;
   margin: 52px auto 0;
   padding: 52px;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #f986bd;
   border-radius: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

@@ -1,11 +1,19 @@
 import * as S from '@/components/brplay/EventCard.style';
 import { EventCards } from './brPlayEventList';
+import { TabType } from './EventTab';
 
-export default function EventCard() {
+interface EventCardProps {
+  selectedTab: TabType;
+}
+
+export default function EventCard({ selectedTab }: EventCardProps) {
+  const filterCard =
+    selectedTab === '전체' ? EventCards : EventCards.filter(item => item.category === selectedTab);
+
   return (
     <S.CardContainer>
       <S.CardListWrap>
-        {EventCards.map(item => (
+        {filterCard.map(item => (
           <S.CardListItem key={item.id}>
             <S.CardItem to="/">
               <S.CardListBox>

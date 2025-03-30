@@ -3,7 +3,7 @@ import EventTab from './EventTab';
 
 export default function BREvent() {
   return (
-    <div>
+    <S.EventContainer>
       <S.EventHeader>
         <S.EventTitle>Event</S.EventTitle>
       </S.EventHeader>
@@ -15,6 +15,6 @@ export default function BREvent() {
         </S.EventDescription>
       </S.EventHeader>
       <EventTab />
-    </div>
+    </S.EventContainer>
   );
 }

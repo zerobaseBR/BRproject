@@ -28,7 +28,7 @@ export default function NewProductList() {
       <S.NewProductListTitle>이달의 신제품</S.NewProductListTitle>
       <S.NewProductsList>
         {newProductListData.map(newProduct => (
-          <S.NewProductItem>
+          <S.NewProductItem key={newProduct.id}>
             <S.NewProductItemImageContainer>
               <S.NewProductItemImage>
                 <img src={newProduct.imageSrc} alt={`${newProduct.name} 이미지`} />

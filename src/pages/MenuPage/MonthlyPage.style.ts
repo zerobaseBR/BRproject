@@ -31,14 +31,20 @@ export const MonthlyPageBodyContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 52px;
+  width: fit-content;
+  margin: 52px auto 0;
+  padding: 52px;
+  border: 1px solid #d4d4d4;
+  border-radius: 24px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin-top: 40px;
+    margin: 40px auto 0;
+    padding: 40px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    margin-top: 32px;
+    margin: 32px auto 0;
+    padding: 32px;
   }
 `;
 
@@ -77,6 +83,7 @@ export const MonthlyPageBodyMenuDescription = styled.p`
   margin-top: 32px;
   word-break: keep-all;
   text-align: center;
+  line-height: 1.3;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     font-size: 16px;
@@ -88,7 +95,6 @@ export const MonthlyPageBodyMenuDescription = styled.p`
 `;
 
 export const MonthlyPageBodynNutritionContainer = styled.div`
-  /* display: flex; */
   display: none;
   position: absolute;
   top: 0;
@@ -106,6 +112,14 @@ export const MonthlyPageBodyMainImageContainer = styled.div`
 
   &:hover ${MonthlyPageBodynNutritionContainer} {
     display: flex;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin-top: 36px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    margin-top: 24px;
   }
 `;
 

@@ -28,15 +28,16 @@ export const MenuPageHeaderTitle = styled.h2`
 `;
 
 export const MenuPageHeaderText = styled.p`
-  margin: 50px 0 90px;
+  margin: 50px 0;
   color: #f986bd;
   font-size: 20px;
   font-weight: 600;
   text-align: center;
   word-break: keep-all;
+  line-height: 1.5;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    margin: 30px 0 60px;
+    margin: 30px 0;
     font-size: 16px;
   }
 

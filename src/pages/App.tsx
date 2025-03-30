@@ -3,10 +3,11 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '@/style/theme';
 import GlobalStyle from '@/style/GlobalStyles';
 import MainPage from '@/pages/MainPage';
-import MenuPage from '@/pages/MenuPage';
+import MenuPage from '@/pages/MenuPage/index';
+import MonthlyPage from '@/pages/MenuPage/MonthlyPage';
 import BRplayPage from '@/pages/BRplayPage';
 import Navbar from '@/components/common/navbar/Navbar';
-// import Footer from '@/components/common/Footer';
+import Footer from '@/components/common/Footer';
 
 export default function App() {
   return (
@@ -14,14 +15,15 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <BrowserRouter>
-          <section>
+          <section style={{ fontFamily: 'NanumSquareNeo' }}>
             <Navbar />
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/menu" element={<MenuPage />} />
+              <Route path="/menu/monthly" element={<MonthlyPage />} />
               <Route path="/brplay" element={<BRplayPage />} />
             </Routes>
-            {/* <Footer /> */}
+            <Footer />
           </section>
         </BrowserRouter>
       </ThemeProvider>

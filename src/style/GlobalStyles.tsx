@@ -66,6 +66,18 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+    /* 📝 p 태그 기본 마진 제거 */
+    p {
+    margin: 0;
+  }
+
+  /* 🧩 헤딩 태그 기본 스타일 제거 */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
 `;
 
 export default GlobalStyle;

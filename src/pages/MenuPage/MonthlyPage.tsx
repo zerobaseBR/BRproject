@@ -30,7 +30,7 @@ export default function MonthlyPage() {
             <S.MonthlyPageBodynNutritionTitle>영양정보</S.MonthlyPageBodynNutritionTitle>
             <S.MonthlyPageBodynNutritionList>
               {nutritionListData.map(nutrition => (
-                <S.MonthlyPageBodynNutritionListItem>
+                <S.MonthlyPageBodynNutritionListItem key={nutrition.id}>
                   <S.MonthlyPageBodynNutritionListName>
                     {nutrition.name}
                   </S.MonthlyPageBodynNutritionListName>

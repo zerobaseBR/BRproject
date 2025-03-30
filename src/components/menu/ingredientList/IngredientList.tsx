@@ -26,7 +26,7 @@ export default function IngredientList() {
   return (
     <S.IngredientListContainer>
       {ingredientListData.map(ingredient => (
-        <S.IngredientListItem>
+        <S.IngredientListItem key={ingredient.id}>
           <S.IngredientListItemImageContainer>
             <img src={ingredient.imageSrc} alt={`${ingredient.name} 이미지`} />
           </S.IngredientListItemImageContainer>

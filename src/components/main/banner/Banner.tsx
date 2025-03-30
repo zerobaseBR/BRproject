@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import * as S from './styles';
 import BannerToggle from './BannerToggle';
+console.log('배너 렌더링됨');
 
 interface BannerEventItem {
   id: number;

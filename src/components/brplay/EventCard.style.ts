@@ -5,6 +5,9 @@ interface CardContentProps {
   category: '프로모션' | '제휴혜택';
 }
 
+export const EventContainer = styled.div`
+  margin: 80px 50px 30px 50px;
+`;
 export const EventHeader = styled.div`
   text-align: center;
   color: #f986bd;
@@ -26,7 +29,7 @@ export const EventDescription = styled.p`
 
 export const CardContainer = styled.div`
   padding-top: 30px;
-  border: 1px solid #d4d4d4;
+  border-top: 1px solid #d4d4d4;
 `;
 
 export const CardListWrap = styled.ul`
@@ -43,15 +46,28 @@ export const CardListItem = styled.li`
 
 export const CardItem = styled(Link)`
   display: flex;
-
   &:hover {
     background-color: #f0f0f0;
+    border-radius: 10px;
+  }
+
+  transition: transform 0.2s ease;
+
+  ${CardListItem}:hover & {
+    transform: scale(1.05);
   }
 `;
 
-export const CardListBox = styled.div``;
+export const CardListBox = styled.div`
+  width: 295px;
+  height: 295px;
+  flex-shrink: 0;
+`;
 
 export const CardImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px 0px 0px 10px;
 `;
 
@@ -59,7 +75,7 @@ export const CardContent = styled.div<CardContentProps>`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
 
   span {
     font-weight: bold;

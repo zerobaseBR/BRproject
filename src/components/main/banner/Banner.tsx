@@ -18,7 +18,7 @@ interface BannerProps {
 }
 
 const Banner: React.FC<BannerProps> = ({
-  mainTitle = '플레이버 오브 더 먼스', // 기본값 다시 추가
+  mainTitle = '플레이버 오브 더 먼스',
   mainImageUrl = 'https://www.baskinrobbins.co.kr/upload/main/banner/9f4a1a178201c7369ca90355a4c2fbae.png',
   mainLink = 'https://www.baskinrobbins.co.kr/menu/fom.php',
   eventItems = [
@@ -43,7 +43,7 @@ const Banner: React.FC<BannerProps> = ({
   ],
 }) => {
   const heroRef = useRef<HTMLDivElement>(null);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   return (
     <S.MainHero ref={heroRef}>
@@ -70,7 +70,7 @@ const Banner: React.FC<BannerProps> = ({
 
             <BannerToggle onToggle={state => setIsExpanded(state)} initialState={isExpanded} />
 
-            <S.SubBannerContainer style={{ display: isExpanded ? 'flex' : 'none' }}>
+            <S.SubBannerContainer $isExpanded={isExpanded}>
               {eventItems.map(item => (
                 <S.SubBannerItem
                   key={item.id}

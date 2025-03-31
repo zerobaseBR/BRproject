@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 export const SearchInput = styled.input`
@@ -25,6 +26,6 @@ export const SearchContainer = styled.div`
   }
 `;
 
-export const SearchIcon = styled.img`
+export const SearchIcon = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>`
   margin: 5px;
 `;

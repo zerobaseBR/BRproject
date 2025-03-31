@@ -1,10 +1,14 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface CardContentProps {
-  category: '프로모션' | '제휴혜택';
+  $category: '프로모션' | '제휴혜택';
+  children?: React.ReactNode;
 }
-
+interface CardListItemProps {
+  children?: React.ReactNode;
+}
 export const EventContainer = styled.div`
   margin: 200px 50px 30px 50px;
 `;
@@ -42,7 +46,7 @@ export const CardListWrap = styled.ul`
   }
 `;
 
-export const CardListItem = styled.li`
+export const CardListItem = styled.li<CardListItemProps>`
   margin: 50px 25px 0;
   list-style: none;
   border-radius: 10px;
@@ -79,7 +83,7 @@ export const CardListBox = styled.div`
   }
 `;
 
-export const CardImage = styled.img`
+export const CardImage = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>`
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -94,7 +98,7 @@ export const CardContent = styled.div<CardContentProps>`
 
   span {
     font-weight: bold;
-    color: ${({ category }) => (category === '제휴혜택' ? '#ff7aac' : '#65c8ff')};
+    color: ${({ $category }) => ($category === '제휴혜택' ? '#ff7aac' : '#65c8ff')};
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

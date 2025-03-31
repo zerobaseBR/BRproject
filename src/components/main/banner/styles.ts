@@ -46,6 +46,12 @@ const starTwinkle = keyframes`
   50% { opacity: 0.9; transform: scale(1.2); }
 `;
 
+export const BannerWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+`;
+
 export const MainHero = styled.div`
   position: relative;
   width: 100%;
@@ -560,7 +566,6 @@ export const SubBannerImage = styled.img`
   }
 `;
 
-// 중복된 토글 버튼들 삭제하고 하나만 깔끔하게 유지
 export const BannerToggleButton = styled.button`
   position: absolute;
   right: 30px;

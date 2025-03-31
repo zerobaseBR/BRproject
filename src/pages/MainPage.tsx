@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import Banner from '@/components/main/banner/Banner';
+import BenefitSection from '@/components/main/brBenefit/BenefitSection';
 import BeBetterSection from '@/components/main/bebetter/BeBetterSection';
-import BenefitSection from '../components/main/brBenefit/BenefitSection';
 import PromotionSection from '@/components/main/promotion/PromotionSection';
+import Banner from '@/components/main/banner/Banner';
 import StoreSection from '@/components/main/store/StoreSection';
 
 // 베이스 스타일 추가
@@ -20,8 +20,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PageWrapper = styled.div`
-  width: 100%;
-  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
 `;
 
 const MainPage: React.FC = () => {

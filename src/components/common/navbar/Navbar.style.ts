@@ -55,7 +55,7 @@ export const NavContainer = styled.nav<React.HTMLAttributes<HTMLDivElement>>`
   padding: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: none;
+    // display: none;
   }
 `;
 
@@ -92,6 +92,7 @@ export const UserMenuItem = styled.li`
   padding: 2px 0;
 
   &:hover {
+    cursor: pointer;
     color: #ff4d72;
   }
 `;
@@ -106,7 +107,15 @@ export const NavItem = styled.li.attrs({
   padding: 10px;
   font-size: 20px;
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    font-size: 15px;
+    font-size: 14px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 10px;
   }
 `;
 
@@ -135,6 +144,18 @@ export const SubLink = styled(Link)`
 
   &:hover {
     color: #ff4d72;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 14px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 12px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 10px;
   }
 `;
 
@@ -182,5 +203,17 @@ export const MenuCategory = styled.li`
   color: #948780;
   &:hover {
     color: #ff4d72;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 14px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 12px;
   }
 `;

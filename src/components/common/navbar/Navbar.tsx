@@ -4,7 +4,7 @@ import BRlogo from '@/assets/images/navbar/br_logo_white.png';
 import BRlogoColor from '@/assets/images/navbar/br_logo.png';
 import userIcon from '@/assets/images/navbar/user_menu_white.png';
 import userIconColor from '@/assets/images/navbar/user_menu.png';
-import hamburger from '@/assets/images/navbar/menu.png';
+// import hamburger from '@/assets/images/navbar/menu.png';
 import React, { useEffect, useRef, useState } from 'react';
 import NavMenu from '../navbar/NavMenu';
 import Search from '../navbar/Search';
@@ -74,9 +74,9 @@ export default function Navbar() {
         </S.LeftSection>
 
         <S.RightSection>
-          <S.MobileMenuButton>
+          {/* <S.MobileMenuButton>
             <img src={hamburger} alt="hamburgermenu" />
-          </S.MobileMenuButton>
+          </S.MobileMenuButton> */}
           <Search navScroll={navScroll} />
           <S.UserMenu ref={divRef}>
             <S.UserButton onClick={toggleMenu}>

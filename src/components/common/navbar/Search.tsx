@@ -1,4 +1,4 @@
-import searchIcon from '@/assets/images/navbar/btn_search_white.png';
+import searchIcon from '@/assets/images/navbar/search.png';
 
 import * as S from '@/components/common/navbar/Search.style';
 export default function Search() {

@@ -1,6 +1,8 @@
+import React from 'react';
 import styled from 'styled-components';
 interface ActiveButton {
   $isActive: boolean;
+  children?: React.ReactNode;
 }
 
 export const TabWrap = styled.ul`
@@ -9,7 +11,10 @@ export const TabWrap = styled.ul`
   align-items: center;
 `;
 
-export const TabButton = styled.li<ActiveButton>`
+export const TabButton = styled.li.attrs({
+  role: 'button',
+  tabIndex: 0,
+})<ActiveButton & React.HTMLAttributes<HTMLLIElement>>`
   border: 1px solid #d4d4d4;
   padding: 10px;
   border-radius: 16px 16px 0 0;

@@ -95,10 +95,13 @@ export const CardContent = styled.div<CardContentProps>`
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-
+  font-weight: bold;
   span {
-    font-weight: bold;
     color: ${({ $category }) => ($category === '제휴혜택' ? '#ff7aac' : '#65c8ff')};
+  }
+  h3 {
+    margin: 15px 0 15px 0;
+    font-size: 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {

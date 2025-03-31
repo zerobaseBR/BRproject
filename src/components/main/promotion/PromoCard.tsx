@@ -11,7 +11,17 @@ const PromoCard: React.FC<PromoCardProps> = ({
   onMouseLeave,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const isPermanentEvent = promotion.period === '상시 진행';
+
+  // 완전히 새로운 문자열로 대체
+  const getPeriodText = useMemo(() => {
+    // 원본 텍스트가 '상시 진행'을 포함하는지 확인
+    const isRegularEvent = String(promotion.period).includes('상시 진행');
+
+    // 완전히 새로운 문자열 반환
+    return isRegularEvent ? '상시 진행' : String(promotion.period).replace(/[^0-9.~\s년월일]/g, '');
+  }, [promotion.period]);
+
+  const isPermanentEvent = getPeriodText === '상시 진행';
 
   // 변환 로직을 useMemo로 최적화
   const formattedTitle = useMemo(() => {
@@ -131,7 +141,7 @@ const PromoCard: React.FC<PromoCardProps> = ({
         <S.CardContent>
           <div>
             <S.CardPeriod className={isPermanentEvent ? 'permanent' : ''}>
-              {promotion.period}
+              {getPeriodText}
             </S.CardPeriod>
             <S.CardTitle
               className={isHovered ? 'highlighted' : ''}

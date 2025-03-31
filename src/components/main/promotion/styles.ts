@@ -861,7 +861,7 @@ export const CardContent = styled.div`
 
 // 카드 기간 스타일 개선 - 디자인 수정 및 버그 수정
 export const CardPeriod = styled.p`
-  font-size: 12px;
+  font-size: 10px;
   color: #ff7c98;
   margin-bottom: 12px;
   font-weight: 600;
@@ -953,7 +953,7 @@ export const CardPeriod = styled.p`
 
 // 카드 타이틀 개선 - 높이 제한 및 다중 라인 처리
 export const CardTitle = styled.h3`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
   color: #333;
   margin-bottom: 12px;
@@ -1013,7 +1013,6 @@ export const CardTitle = styled.h3`
   &.highlighted,
   ${PromotionCard}:hover & {
     transform: translateY(-2px);
-    font-size: 19px;
     letter-spacing: 0px; // 호버 시 자간 조정
     margin-left: 5px;
     text-shadow: 0px 2px 2px rgba(255, 84, 132, 0.2); // 강화된 그림자

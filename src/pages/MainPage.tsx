@@ -5,6 +5,7 @@ import BeBetterSection from '@/components/main/bebetter/BeBetterSection';
 import PromotionSection from '@/components/main/promotion/PromotionSection';
 import Banner from '@/components/main/banner/Banner';
 import StoreSection from '@/components/main/store/StoreSection';
+import BrPlaySection from '@/components/main/brplay/BRPlay';
 
 // 베이스 스타일 추가
 const GlobalStyle = createGlobalStyle`
@@ -32,6 +33,7 @@ const MainPage: React.FC = () => {
       <PageWrapper>
         <Banner />
         <PromotionSection />
+        <BrPlaySection />
         <BeBetterSection />
         <BenefitSection />
         <StoreSection />

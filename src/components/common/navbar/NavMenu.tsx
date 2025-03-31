@@ -1,5 +1,5 @@
 import * as S from '@/components/common/navbar/Navbar.style';
-import { MenuList } from '../../navMenuList';
+import { MenuList } from './navMenuList';
 import React from 'react';
 
 type Props = {
@@ -15,7 +15,6 @@ export default function NavMenu({ hoveredMenu, setHoveredMenu }: Props) {
           <S.StyledLink to={menu.path} $active={hoveredMenu === menu.name}>
             {menu.name}
           </S.StyledLink>
-
           {hoveredMenu === menu.name && (
             <S.SubMenuWrap>
               <S.SubMenu>

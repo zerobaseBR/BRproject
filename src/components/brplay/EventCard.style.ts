@@ -23,6 +23,17 @@ export const EventTitle = styled.h2`
   font-weight: 700;
   line-height: 1;
   margin: 0;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 70px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    font-size: 60px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 40px;
+  }
 `;
 
 export const EventDescription = styled.p`
@@ -30,6 +41,10 @@ export const EventDescription = styled.p`
   padding: 0 25px;
   line-height: 1.5;
   font-weight: 600;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 12px;
+  }
 `;
 
 export const CardContainer = styled.div`

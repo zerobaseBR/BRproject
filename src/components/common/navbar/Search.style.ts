@@ -9,6 +9,10 @@ export const SearchInput = styled.input`
   &:hover {
     width: 300px;
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
+  }
 `;
 
 export const SearchContainer = styled.div`
@@ -16,6 +20,9 @@ export const SearchContainer = styled.div`
   padding-bottom: 3px;
   border-bottom: 2px solid white;
   margin: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    border: none;
+  }
 `;
 
 export const SearchIcon = styled.img`

@@ -5,14 +5,37 @@ interface StyledLinkProps {
   $active?: boolean;
 }
 
-export const DivContainer = styled.div``;
-export const NavbarContainer = styled.div`
+interface NavProps {
+  $scrolled?: boolean;
+}
+
+export const MobileMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: block;
+    margin-right: 20px;
+    color: ${({ theme }) => theme.colors?.text || 'white'};
+  }
+`;
+
+export const DivContainer = styled.div`
+  margin-bottom: 100px;
+`;
+export const NavbarContainer = styled.div<NavProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f986bd;
+  background-color: ${({ $scrolled }) => ($scrolled ? '#f986bd' : 'transparent')};
   z-index: 30;
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
 
 export const LeftSection = styled.div`
@@ -28,6 +51,10 @@ export const LogoIcon = styled.img``;
 export const NavContainer = styled.nav`
   margin-left: 32px;
   padding: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
+  }
 `;
 
 export const Nav = styled.ul`
@@ -72,6 +99,9 @@ export const UserButton = styled.button`
 export const NavItem = styled.li`
   padding: 10px;
   font-size: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 15px;
+  }
 `;
 
 export const StyledLink = styled(Link)<StyledLinkProps>`
@@ -98,23 +128,23 @@ export const SubLink = styled(Link)`
     color: #ff4d72;
   }
 `;
+
 export const SubMenu = styled.div`
+  margin-left: 90px;
   background-color: white;
   z-index: 20;
   width: max-content;
 `;
 
 export const SubMenuWrap = styled.div`
+  width: 100%;
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100vw;
-  margin: 20px 80px 0 0;
   background-color: white;
 `;
 
-export const NavItemWrapper = styled.div`
-  position: relative;
+export const NavItemWrapper = styled.ul`
   padding-top: 15px;
   padding-bottom: 15px;
   display: flex;
@@ -122,6 +152,7 @@ export const NavItemWrapper = styled.div`
     display: block;
   }
 `;
+
 export const SubMenuItem = styled.ul`
   display: flex;
   gap: 40px;

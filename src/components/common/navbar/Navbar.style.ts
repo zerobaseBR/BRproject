@@ -1,11 +1,13 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface StyledLinkProps {
   $active?: boolean;
+  $scrolled?: boolean;
 }
 
-interface NavProps {
+interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
   $scrolled?: boolean;
 }
 
@@ -19,13 +21,13 @@ export const MobileMenuButton = styled.button`
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     display: block;
     margin-right: 20px;
-    color: ${({ theme }) => theme.colors?.text || 'white'};
   }
 `;
 
 export const DivContainer = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 `;
+
 export const NavbarContainer = styled.div<NavProps>`
   display: flex;
   align-items: center;
@@ -48,7 +50,7 @@ export const LeftSection = styled.div`
 
 export const LogoIcon = styled.img``;
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.nav<React.HTMLAttributes<HTMLDivElement>>`
   margin-left: 32px;
   padding: 10px;
 
@@ -68,10 +70,12 @@ export const RightSection = styled.div`
   margin: 20px;
 `;
 
-export const UserMenu = styled.div`
+export const UserMenu = styled.div.attrs({})`
   margin: 0 20px;
   margin-right: 10px;
-`;
+` as unknown as React.FC<
+  React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
+>;
 
 export const UserContainer = styled.div`
   position: absolute;
@@ -92,11 +96,13 @@ export const UserMenuItem = styled.li`
   }
 `;
 
-export const UserButton = styled.button`
+export const UserButton = styled.button<React.ButtonHTMLAttributes<HTMLButtonElement>>`
   margin: 15px 0px;
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled.li.attrs({
+  role: 'presentation',
+})<React.HTMLAttributes<HTMLLIElement>>`
   padding: 10px;
   font-size: 20px;
   @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
@@ -106,7 +112,10 @@ export const NavItem = styled.li`
 
 export const StyledLink = styled(Link)<StyledLinkProps>`
   text-decoration: none;
-  color: ${({ $active }) => ($active ? 'black' : 'white')};
+  color: ${({ $scrolled, $active }) => {
+    if (!$scrolled) return 'black';
+    return $active ? 'black' : 'white';
+  }};
   font-weight: bold;
 
   &:hover {
@@ -114,7 +123,7 @@ export const StyledLink = styled(Link)<StyledLinkProps>`
   }
 `;
 
-export const SubList = styled.li`
+export const SubList = styled.li<React.HTMLAttributes<HTMLLIElement>>`
   padding: 10px;
 `;
 
@@ -125,7 +134,7 @@ export const SubLink = styled(Link)`
   padding: 10px;
 
   &:hover {
-    color: #ff4d72;
+    color: '#ff4d72';
   }
 `;
 
@@ -153,7 +162,7 @@ export const NavItemWrapper = styled.ul`
   }
 `;
 
-export const SubMenuItem = styled.ul`
+export const SubMenuItem = styled.ul<React.HTMLAttributes<HTMLUListElement>>`
   display: flex;
   gap: 40px;
   padding: 10px;

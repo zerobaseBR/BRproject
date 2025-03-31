@@ -65,7 +65,11 @@ export default function Navbar() {
           </h1>
 
           <S.NavContainer onMouseLeave={() => setHoveredMenu(null)}>
-            <NavMenu hoveredMenu={hoveredMenu} setHoveredMenu={setHoveredMenu} />
+            <NavMenu
+              hoveredMenu={hoveredMenu}
+              setHoveredMenu={setHoveredMenu}
+              navScroll={navScroll}
+            />
           </S.NavContainer>
         </S.LeftSection>
 

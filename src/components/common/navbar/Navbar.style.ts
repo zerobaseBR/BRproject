@@ -140,6 +140,8 @@ export const SubLink = styled(Link)`
 
 export const SubMenu = styled.div`
   margin-left: 90px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: white;
   z-index: 20;
   width: max-content;
@@ -156,6 +158,7 @@ export const SubMenuWrap = styled.div`
 export const NavItemWrapper = styled.ul`
   padding-top: 15px;
   padding-bottom: 15px;
+
   display: flex;
   &:hover ${SubMenu} {
     display: block;

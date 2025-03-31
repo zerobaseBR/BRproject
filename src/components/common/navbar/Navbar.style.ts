@@ -134,7 +134,7 @@ export const SubLink = styled(Link)`
   padding: 10px;
 
   &:hover {
-    color: '#ff4d72';
+    color: #ff4d72;
   }
 `;
 

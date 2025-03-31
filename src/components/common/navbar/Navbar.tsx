@@ -77,7 +77,7 @@ export default function Navbar() {
           <S.MobileMenuButton>
             <img src={hamburger} alt="hamburgermenu" />
           </S.MobileMenuButton>
-          <Search />
+          <Search navScroll={navScroll} />
           <S.UserMenu ref={divRef}>
             <S.UserButton onClick={toggleMenu}>
               <img src={navScroll ? userIcon : userIconColor} alt="User" />

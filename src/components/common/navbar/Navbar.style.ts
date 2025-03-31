@@ -1,18 +1,43 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface StyledLinkProps {
   $active?: boolean;
+  $scrolled?: boolean;
 }
 
-export const DivContainer = styled.div``;
-export const NavbarContainer = styled.div`
+interface NavProps extends React.HTMLAttributes<HTMLDivElement> {
+  $scrolled?: boolean;
+}
+
+export const MobileMenuButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: block;
+    margin-right: 20px;
+  }
+`;
+
+export const DivContainer = styled.div`
+  margin-bottom: 120px;
+`;
+
+export const NavbarContainer = styled.div<NavProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #f986bd;
+  background-color: ${({ $scrolled }) => ($scrolled ? '#f986bd' : 'transparent')};
   z-index: 30;
   width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
 
 export const LeftSection = styled.div`
@@ -25,9 +50,13 @@ export const LeftSection = styled.div`
 
 export const LogoIcon = styled.img``;
 
-export const NavContainer = styled.nav`
+export const NavContainer = styled.nav<React.HTMLAttributes<HTMLDivElement>>`
   margin-left: 32px;
   padding: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: none;
+  }
 `;
 
 export const Nav = styled.ul`
@@ -41,10 +70,12 @@ export const RightSection = styled.div`
   margin: 20px;
 `;
 
-export const UserMenu = styled.div`
+export const UserMenu = styled.div.attrs({})`
   margin: 0 20px;
   margin-right: 10px;
-`;
+` as unknown as React.FC<
+  React.HTMLAttributes<HTMLDivElement> & { ref?: React.Ref<HTMLDivElement> }
+>;
 
 export const UserContainer = styled.div`
   position: absolute;
@@ -65,18 +96,26 @@ export const UserMenuItem = styled.li`
   }
 `;
 
-export const UserButton = styled.button`
+export const UserButton = styled.button<React.ButtonHTMLAttributes<HTMLButtonElement>>`
   margin: 15px 0px;
 `;
 
-export const NavItem = styled.li`
+export const NavItem = styled.li.attrs({
+  role: 'presentation',
+})<React.HTMLAttributes<HTMLLIElement>>`
   padding: 10px;
   font-size: 20px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    font-size: 15px;
+  }
 `;
 
 export const StyledLink = styled(Link)<StyledLinkProps>`
   text-decoration: none;
-  color: ${({ $active }) => ($active ? 'black' : 'white')};
+  color: ${({ $scrolled, $active }) => {
+    if (!$scrolled) return 'black';
+    return $active ? 'black' : 'white';
+  }};
   font-weight: bold;
 
   &:hover {
@@ -84,7 +123,7 @@ export const StyledLink = styled(Link)<StyledLinkProps>`
   }
 `;
 
-export const SubList = styled.li`
+export const SubList = styled.li<React.HTMLAttributes<HTMLLIElement>>`
   padding: 10px;
 `;
 
@@ -98,31 +137,35 @@ export const SubLink = styled(Link)`
     color: #ff4d72;
   }
 `;
+
 export const SubMenu = styled.div`
+  margin-left: 90px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: white;
   z-index: 20;
   width: max-content;
 `;
 
 export const SubMenuWrap = styled.div`
+  width: 100%;
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100vw;
-  margin: 20px 80px 0 0;
   background-color: white;
 `;
 
-export const NavItemWrapper = styled.div`
-  position: relative;
+export const NavItemWrapper = styled.ul`
   padding-top: 15px;
   padding-bottom: 15px;
+
   display: flex;
   &:hover ${SubMenu} {
     display: block;
   }
 `;
-export const SubMenuItem = styled.ul`
+
+export const SubMenuItem = styled.ul<React.HTMLAttributes<HTMLUListElement>>`
   display: flex;
   gap: 40px;
   padding: 10px;

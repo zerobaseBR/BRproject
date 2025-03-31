@@ -1,13 +1,18 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface CardContentProps {
-  category: '프로모션' | '제휴혜택';
+  $category: '프로모션' | '제휴혜택';
+  children?: React.ReactNode;
 }
-
+interface CardListItemProps {
+  children?: React.ReactNode;
+}
 export const EventContainer = styled.div`
-  margin: 80px 50px 30px 50px;
+  margin: 200px 50px 30px 50px;
 `;
+
 export const EventHeader = styled.div`
   text-align: center;
   color: #f986bd;
@@ -21,7 +26,7 @@ export const EventTitle = styled.h2`
 `;
 
 export const EventDescription = styled.p`
-  margin-top: 50px;
+  margin: 50px 0 30px 0;
   padding: 0 25px;
   line-height: 1.5;
   font-weight: 600;
@@ -35,17 +40,26 @@ export const CardContainer = styled.div`
 export const CardListWrap = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-export const CardListItem = styled.li`
+export const CardListItem = styled.li<CardListItemProps>`
   margin: 50px 25px 0;
   list-style: none;
   border-radius: 10px;
   border: 1px solid #d4d4d4;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin: 20px 10px 0;
+  }
 `;
 
 export const CardItem = styled(Link)`
   display: flex;
+
   &:hover {
     background-color: #f0f0f0;
     border-radius: 10px;
@@ -62,13 +76,18 @@ export const CardListBox = styled.div`
   width: 295px;
   height: 295px;
   flex-shrink: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 150px;
+    height: auto;
+  }
 `;
 
-export const CardImage = styled.img`
+export const CardImage = styled.img<React.ImgHTMLAttributes<HTMLImageElement>>`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px 0px 0px 10px;
+  border-radius: 10px 0 0 10px;
 `;
 
 export const CardContent = styled.div<CardContentProps>`
@@ -76,9 +95,16 @@ export const CardContent = styled.div<CardContentProps>`
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-
+  font-weight: bold;
   span {
-    font-weight: bold;
-    color: ${({ category }) => (category === '제휴혜택' ? '#ff7aac' : '#65c8ff')};
+    color: ${({ $category }) => ($category === '제휴혜택' ? '#ff7aac' : '#65c8ff')};
+  }
+  h3 {
+    margin: 15px 0 15px 0;
+    font-size: 18px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 15px;
   }
 `;

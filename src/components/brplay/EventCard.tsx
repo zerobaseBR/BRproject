@@ -17,9 +17,9 @@ export default function EventCard({ selectedTab }: EventCardProps) {
           <S.CardListItem key={item.id}>
             <S.CardItem to="/">
               <S.CardListBox>
-                <S.CardImage src={item.image} />
+                <S.CardImage src={item.image} alt="event_card" />
               </S.CardListBox>
-              <S.CardContent category={item.category}>
+              <S.CardContent $category={item.category}>
                 <span>{item.category}</span>
                 <h3>{item.title}</h3>
                 <p>{item.dateRange}</p>

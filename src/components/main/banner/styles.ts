@@ -1,4 +1,17 @@
 import styled, { keyframes } from 'styled-components';
+const slideIn = keyframes`
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+`;
+
+const slideOut = keyframes`
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(30px); }
+`;
+
+interface SubBannerContainerProps {
+  $isExpanded: boolean;
+}
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -488,7 +501,7 @@ export const SparkleEffect = styled.div`
 `;
 
 // 서브 배너 컨테이너의 위치와 간격 조정
-export const SubBannerContainer = styled.div`
+export const SubBannerContainer = styled.div<SubBannerContainerProps>`
   position: absolute;
   top: 40px;
   right: 40px;
@@ -496,6 +509,8 @@ export const SubBannerContainer = styled.div`
   gap: 20px;
   z-index: 10;
   flex-direction: column;
+  pointer-events: ${({ $isExpanded }) => ($isExpanded ? 'auto' : 'none')};
+  animation: ${({ $isExpanded }) => ($isExpanded ? slideIn : slideOut)} 0.5s forwards;
 
   @media (max-width: 768px) {
     top: 15px;

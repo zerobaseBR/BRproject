@@ -48,14 +48,27 @@ export const FooterInformationAndSiteMenuContainer = styled.div`
   }
 `;
 
+export const FooterInformationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    flex-direction: column;
+  }
+`;
+
 export const FooterInformationTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 28px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
-    margin-top: 16px;
     gap: 8px;
   }
 `;

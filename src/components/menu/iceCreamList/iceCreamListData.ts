@@ -1,25 +1,25 @@
-import IceCream1 from '@/assets/images/menu/icecream1.png';
-import IceCream2 from '@/assets/images/menu/icecream2.png';
-import IceCream3 from '@/assets/images/menu/icecream3.png';
-import IceCream4 from '@/assets/images/menu/icecream4.png';
-import IceCream5 from '@/assets/images/menu/icecream5.png';
-import IceCream6 from '@/assets/images/menu/icecream6.png';
-import IceCream7 from '@/assets/images/menu/icecream7.png';
-import IceCream8 from '@/assets/images/menu/icecream8.png';
-import IceCream9 from '@/assets/images/menu/icecream9.png';
-import IceCream10 from '@/assets/images/menu/icecream10.png';
-import IceCream11 from '@/assets/images/menu/icecream11.png';
-import IceCream12 from '@/assets/images/menu/icecream12.png';
-import IceCream13 from '@/assets/images/menu/icecream13.png';
-import IceCream14 from '@/assets/images/menu/icecream14.png';
-import IceCream15 from '@/assets/images/menu/icecream15.png';
-import IceCream16 from '@/assets/images/menu/icecream16.png';
-import IceCream17 from '@/assets/images/menu/icecream17.png';
-import IceCream18 from '@/assets/images/menu/icecream18.png';
-import IceCream19 from '@/assets/images/menu/icecream19.png';
-import IceCream20 from '@/assets/images/menu/icecream20.png';
+import IceCream1 from '@/assets/images/menu/icecream1.webp';
+import IceCream2 from '@/assets/images/menu/icecream2.webp';
+import IceCream3 from '@/assets/images/menu/icecream3.webp';
+import IceCream4 from '@/assets/images/menu/icecream4.webp';
+import IceCream5 from '@/assets/images/menu/icecream5.webp';
+import IceCream6 from '@/assets/images/menu/icecream6.webp';
+import IceCream7 from '@/assets/images/menu/icecream7.webp';
+import IceCream8 from '@/assets/images/menu/icecream8.webp';
+import IceCream9 from '@/assets/images/menu/icecream9.webp';
+import IceCream10 from '@/assets/images/menu/icecream10.webp';
+import IceCream11 from '@/assets/images/menu/icecream11.webp';
+import IceCream12 from '@/assets/images/menu/icecream12.webp';
+import IceCream13 from '@/assets/images/menu/icecream13.webp';
+import IceCream14 from '@/assets/images/menu/icecream14.webp';
+import IceCream15 from '@/assets/images/menu/icecream15.webp';
+import IceCream16 from '@/assets/images/menu/icecream16.webp';
+import IceCream17 from '@/assets/images/menu/icecream17.webp';
+import IceCream18 from '@/assets/images/menu/icecream18.webp';
+import IceCream19 from '@/assets/images/menu/icecream19.webp';
+import IceCream20 from '@/assets/images/menu/icecream20.webp';
 
-export const IceCreamList = [
+export const IceCreamListData = [
   {
     id: 1,
     name: '말랑 딸기 찹쌀떡',
@@ -27,6 +27,7 @@ export const IceCreamList = [
     imageSrc: IceCream1,
     mainColor: '#f0b6b5',
     textColor: '#e21727',
+    keyword: ['크림치즈', '딸기'],
   },
   {
     id: 2,
@@ -35,6 +36,7 @@ export const IceCreamList = [
     imageSrc: IceCream2,
     mainColor: '#af7a3b',
     textColor: '#fff',
+    keyword: ['민트', '초콜릿'],
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ export const IceCreamList = [
     imageSrc: IceCream3,
     mainColor: '#FFB700',
     textColor: '#fae0e4',
+    keyword: ['요거트', '복숭아'],
   },
   {
     id: 4,
@@ -51,6 +54,7 @@ export const IceCreamList = [
     imageSrc: IceCream4,
     mainColor: '#FCA311',
     textColor: '#fff3b0',
+    keyword: ['망고'],
   },
   {
     id: 5,
@@ -59,6 +63,7 @@ export const IceCreamList = [
     imageSrc: IceCream5,
     mainColor: '#9BB053',
     textColor: '#fff',
+    keyword: ['민트'],
   },
   {
     id: 6,
@@ -67,6 +72,7 @@ export const IceCreamList = [
     imageSrc: IceCream6,
     mainColor: '#EBC349',
     textColor: '#fff',
+    keyword: ['바닐라'],
   },
   {
     id: 7,
@@ -75,6 +81,7 @@ export const IceCreamList = [
     imageSrc: IceCream7,
     mainColor: '#ECF39E',
     textColor: '#8cb369',
+    keyword: ['멜론'],
   },
   {
     id: 8,
@@ -83,6 +90,7 @@ export const IceCreamList = [
     imageSrc: IceCream8,
     mainColor: '#DDA15E',
     textColor: '#78290f',
+    keyword: ['커피'],
   },
   {
     id: 9,
@@ -91,6 +99,7 @@ export const IceCreamList = [
     imageSrc: IceCream9,
     mainColor: '#E0B1CB',
     textColor: '#412c37',
+    keyword: ['블루베리'],
   },
   {
     id: 10,
@@ -99,6 +108,7 @@ export const IceCreamList = [
     imageSrc: IceCream10,
     mainColor: '#004E98',
     textColor: '#fff',
+    keyword: ['소금우유'],
   },
   {
     id: 11,
@@ -107,6 +117,7 @@ export const IceCreamList = [
     imageSrc: IceCream11,
     mainColor: '#582F0E',
     textColor: '#fff',
+    keyword: ['말차'],
   },
   {
     id: 12,
@@ -115,6 +126,7 @@ export const IceCreamList = [
     imageSrc: IceCream12,
     mainColor: '#FFC2D1',
     textColor: '#f72585',
+    keyword: ['딸기', '팝핑캔디'],
   },
   {
     id: 13,
@@ -123,6 +135,7 @@ export const IceCreamList = [
     imageSrc: IceCream13,
     mainColor: '#F8CB5C',
     textColor: '#87602c',
+    keyword: ['초콜릿'],
   },
   {
     id: 14,
@@ -131,6 +144,7 @@ export const IceCreamList = [
     imageSrc: IceCream14,
     mainColor: '#836468',
     textColor: '#90b9b4',
+    keyword: ['민트', '초콜릿'],
   },
   {
     id: 15,
@@ -139,14 +153,16 @@ export const IceCreamList = [
     imageSrc: IceCream15,
     mainColor: '#7F5A4D',
     textColor: '#c17641',
+    keyword: ['치즈'],
   },
   {
     id: 16,
-    name: '레인보우 샤베트',
-    hash: '#파인애플 #오렌지 #라즈베리',
+    name: '이상한 나라의 솜사탕',
+    hash: '#달달 #부드러운 #솜사탕',
     imageSrc: IceCream16,
-    mainColor: '#FFEB8E',
-    textColor: '#e54567',
+    mainColor: '#FFAEB8',
+    textColor: '#4f8096',
+    keyword: ['솜사탕'],
   },
   {
     id: 17,
@@ -155,6 +171,7 @@ export const IceCreamList = [
     imageSrc: IceCream17,
     mainColor: '#B45A93',
     textColor: '#ffd7de',
+    keyword: ['체리'],
   },
   {
     id: 18,
@@ -163,6 +180,7 @@ export const IceCreamList = [
     imageSrc: IceCream18,
     mainColor: '#324B79',
     textColor: '#9dbac6',
+    keyword: ['팝핑캔디'],
   },
   {
     id: 19,
@@ -171,6 +189,7 @@ export const IceCreamList = [
     imageSrc: IceCream19,
     mainColor: '#35221F',
     textColor: '#e6d7ba',
+    keyword: ['오레오'],
   },
   {
     id: 20,
@@ -179,5 +198,6 @@ export const IceCreamList = [
     imageSrc: IceCream20,
     mainColor: '#C32550',
     textColor: '#ffcec7',
+    keyword: ['치즈', '블루베리', '딸기'],
   },
 ];

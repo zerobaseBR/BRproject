@@ -6,6 +6,7 @@ import MainPage from '@/pages/MainPage';
 import MenuPage from '@/pages/MenuPage/index';
 import MonthlyPage from '@/pages/MenuPage/MonthlyPage';
 import BRplayPage from '@/pages/BRplayPage';
+import Navbar from '@/components/common/navbar/Navbar';
 import Footer from '@/components/common/Footer';
 
 export default function App() {
@@ -14,7 +15,8 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <BrowserRouter>
-          <section>
+          <section style={{ fontFamily: 'NanumSquareNeo' }}>
+            <Navbar />
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/menu" element={<MenuPage />} />
